@@ -254,6 +254,27 @@ $(function () {
     jQuery('[data-id="on-change"]').on('change', function(event){
         $(this).parent().submit();
     })
+
+    if($(".horiz__basket").length>0){
+        var result=0;
+        $(".horiz__item").each(function(i,el){
+           var price=parseFloat($(el).find(".basket__price").text()).toFixed(2);
+            var inputVal=parseInt($(el).find(".basket__input").val(),10);
+            result+=price*inputVal;
+        });
+        $(".total__amount").text(result.toFixed(2));
+    }
+    $(".basket__input").on("change keyup",function(){
+        var result=0;
+        $(".horiz__item").each(function(i,el){
+            var price=parseFloat($(el).find(".basket__price").text()).toFixed(2);
+            var inputVal=parseInt($(el).find(".basket__input").val(),10);
+            result+=price*inputVal;
+        });
+        if(!isNaN(result)){
+            $(".total__amount").text(result.toFixed(2));
+        }
+    })
 });
 
 function findMaxMin(){
