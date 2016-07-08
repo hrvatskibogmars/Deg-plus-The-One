@@ -23,7 +23,7 @@ $posts = $query->get_posts();
         <div class="cover">
             <div class="cover__image">
                 <div class="cover__text">
-                    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                    <h1>Bogatstvo ponude sezonskog voća i povrća nadohvat ruke.</h1>
                 </div>
             </div>
         </div>

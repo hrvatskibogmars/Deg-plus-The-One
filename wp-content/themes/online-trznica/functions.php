@@ -110,6 +110,9 @@ function korisnik_add_role()
 
 function getProductData(WP_Post $post) {
     $fields = get_fields($post->ID);
+    if(!isset($fields['description'])){
+        $fields['description'] = $fields['short_description'];
+    }
 
     $isOpg = get_user_meta($post->post_author, 'opg', true);
     $opgName = $isOpg ? get_user_meta($post->post_author, 'name', true) : "";
@@ -154,5 +157,5 @@ function formatProductPrice($data) {
 }
 
 add_action('acf/save_post', function( $post_id) {
-    
+
 });

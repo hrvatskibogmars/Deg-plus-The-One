@@ -13,6 +13,6 @@
         <p class="horiz__desc"><?=$data['short_description']?></p>
     </div>
     <div class="horiz__contact horiz__basket">
-        <a href="#" class="btn-red btn horiz__btn">+ Košarica</a>
+        <a href="/cart?productId=<?=$data['id']?>" class="btn-red btn horiz__btn">+ Košarica</a>
     </div>
 </li>
