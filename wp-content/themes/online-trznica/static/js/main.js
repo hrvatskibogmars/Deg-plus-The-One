@@ -275,6 +275,23 @@ $(function () {
             $(".total__amount").text(result.toFixed(2));
         }
     })
+    $(".events__list").slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+
+    });
 });
 
 function findMaxMin(){
