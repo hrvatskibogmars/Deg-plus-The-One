@@ -70,7 +70,19 @@ add_action( 'init', 'register_my_menus' );
 
 
 add_action( 'user_register', function( $user_id) {
+    if($user_id) {
+        update_user_meta($user_id, 'phone', $_POST['phone']);
 
+        wp_update_user( array('ID' => $user_id, 'role' => 'Korisnik'));
+
+        wp_signon(array(
+            'user_login' => $_POST['reg_username'],
+            'user_password' => $_POST['reg_password'],
+            'remember' => true,
+            ));
+
+        wp_redirect( get_site_url() );
+    }
 }, 10, 1 );
 
 
@@ -93,4 +105,30 @@ function korisnik_add_role()
         $role->add_cap('delete_published_product');
 
     }
+}
+
+
+function getProductData(WP_Post $post) {
+    $fields = get_fields($post->ID);
+
+    return array_merge(
+        $fields,
+        array(
+            "title" => $post->post_title,
+            "id" => $post->ID,
+            "price" => formatProductPrice($fields)
+        )
+    );
+}
+
+function formatProductPrice($data) {
+    switch($data['unit']) {
+        case 'komad':
+            $t = "/kom";
+            break;
+        default:
+            $t = "/kg";
+    }
+
+    return number_format_i18n( $data['price'], 2) . " kn" . $t;
 }

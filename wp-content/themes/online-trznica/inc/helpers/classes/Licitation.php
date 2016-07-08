@@ -141,6 +141,38 @@ class Licitation
     }
 
     /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDesignatedTable()
+    {
+        return $this->designated_table;
+    }
+
+    /**
      * @param mixed $userId
      */
     public function setUserId($userId)

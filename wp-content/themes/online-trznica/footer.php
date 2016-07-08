@@ -21,6 +21,6 @@
 get_partial('layout/_scripts')
 ?>
 <!-- /SCRIPTS -->
+
 </body>
 </html>
-

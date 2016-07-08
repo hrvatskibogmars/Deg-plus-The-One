@@ -16,6 +16,8 @@ class AutoLoader {
         "scripts" => "scripts",
         "custom-taxonomy" => "custom-taxonomy",
 
+        "Licitation" => "helpers/classes/Licitation",
+        "TableOwnership" => "helpers/classes/TableOwnership",
     );
 
 
