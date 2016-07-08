@@ -47,15 +47,8 @@ var paths = {
     pluginsJS: {
         src: [
             '../bower_components/jquery/dist/jquery.js',
-            // application javascript
-            '../static/js/helpers/jquery.data-js.js',
-            '../static/js/helpers/Object.js',
-            '../static/js/application/base.js',
-            '../static/js/application/apps.js',
-            '../static/js/vendor/gsap/TweenMax.min.js',
-            '../static/js/vendor/lightgallery/lightgallery.min.js',
-            '../static/js/vendor/nouislider/nouislider.min.js',
-            '../static/js/vendor/remodal/remodal.min.js'
+            '../bower_components/jquery/dist/jquery.js',
+            '../static/js/vendor/**/*.js'
         ],
         dest: '../static/js/',
         build: '../static/dist/'
@@ -63,23 +56,16 @@ var paths = {
 
     frontendJS: {
         srcloc: [
+            '../static/js/**/*.js',
             '!../static/js/frontend.js',
             '!../static/js/vendor/**/*.js',
-            '!../static/js/plugins.js',
-            '!../static/js/helpers/jquery.data-js.js',
-            '!../static/js/helpers/Object.js',
-            '!../static/js/application/base.js',
-            '!../static/js/application/apps.js',
-            '../static/js/**/*.js',
+            '!../static/js/plugins.js'
         ],
         srcdist: [
-            '!../static/js/helpers/Object.js',
-            '!../static/js/application/base.js',
-            '!../static/js/application/apps.js',
-            '!../static/js/vendor/**/*.js',
-            '!../static/js/frontend.js',
             '../static/js/plugins.js',
             '../static/js/**/*.js',
+            '!../static/js/vendor/**/*.js',
+            '!../static/js/frontend.js'
         ],
         dest: '../static/js/',
         build: '../static/dist/'
