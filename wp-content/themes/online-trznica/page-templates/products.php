@@ -4,7 +4,9 @@
 the_post();
 get_header();
 $ps = new ProductsSearch();
-$opg = $ps->getOPGs();
+$products = $ps->search();
+
+$opgs = $ps->getOPGs();
 $categories = ProductsSearch::getCategories();
 ?>
     <main class="main">
@@ -20,39 +22,33 @@ $categories = ProductsSearch::getCategories();
             <div class="filter">
                 <form action="#" class="filter__form">
                     <select>
-                        <option value="Kategorija" selected>Kategorija</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option value="0" selected>Kategorija</option>
+                        <?php
+                        foreach($categories as $category) {
+                            echo '<option value="'.$category->slug.'">'.$category->name.'</option>';
+                        }
+                        ?>
                     </select>
                 </form>
             </div>
             <div class="filter">
                 <form action="#" class="filter__form">
                     <select>
-                        <option value="Kategorija" selected>OPG</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option value="0" selected>OPG</option>
+                        <?php
+                        foreach($opgs as $id => $name) {
+                            echo '<option value="'.$id.'">'.$name.'</option>';
+                        }
+                        ?>
                     </select>
                 </form>
             </div>
             <ul class="horiz__list">
-                <li class="horiz__item">
-                    <div class="horiz__image">
-                        <img src="static/img/prod2.jpg" alt="" class="horiz__source">
-                    </div>
-                    <div class="horiz__info">
-                        <span class="horiz__type">OPG</span>
-                        <p class="horiz__title">OPG1</p>
-                        <p class="horiz__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque consequatur cupiditate, earum eligendi</p>
-                    </div>
-                    <div class="horiz__contact horiz__basket">
-                        <a href="#" class="btn-red btn horiz__btn">+ Košarica</a>
-                    </div>
-                </li>
+                <?php
+                    foreach ($products as $product){
+                        get_partial('products/listing-item', ['data' => getProductData($product)]);
+                    }
+                ?>
             </ul>
             <div class="load-more">
                 <a href="#" class="load-more__anchor btn btn-black">Učitaj više</a>
