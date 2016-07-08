@@ -7,7 +7,7 @@
 
 <div class="products__item">
     <div class="products__image">
-        <img src="<?=$data['slike']['0']['sizes']['large']?>" class="products__source" alt="">
+        <img src="<?=$data['slike']['sizes']['large']?>" class="products__source" alt="">
     </div>
     <div class="products__info">
         <h3 class="products__title"><?= $data['title'] ?></h3>
