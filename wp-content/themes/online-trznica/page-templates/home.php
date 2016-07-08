@@ -49,7 +49,7 @@ $posts = $query->get_posts();
                         <li class="events__item">
                             <a href="<?=get_permalink($p->ID)?>">
                                 <div class="events__inner" style="background-size:cover;background-image:url(<?=$image['sizes']['large']?>)">
-                                    <div style="background-color: rgba(255,255,255,0.3); width:100%; height: 100%;">
+                                    <div style="background-color: rgba(0,0,0,0.3); width:100%; height: 100%;">
                                         <h2 class="events__content"><?=$p->post_content?></h2>
                                     </div>
                                 </div>
