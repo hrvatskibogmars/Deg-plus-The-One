@@ -12,14 +12,9 @@
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<? get_partial('layout/_head') ?>
+<?php get_partial('layout/_head') ?>
 
 <body>
-
-<!-- MAIN NAVIGATION -->
-<?php
-?>
-<!-- /MAIN NAVIGATION -->
 
 <!-- SUB NAVIGATION -->
 <?php
