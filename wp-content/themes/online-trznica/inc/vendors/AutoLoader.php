@@ -20,6 +20,7 @@ class AutoLoader {
         "TableOwnership" => "helpers/classes/TableOwnership",
         "ProductsSearch" => "helpers/classes/ProductsSearch",
         "OPGSearch" => "helpers/classes/OPGSearch",
+        "Cart" => "helpers/classes/Cart",
     );
 
 
