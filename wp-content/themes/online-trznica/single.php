@@ -8,7 +8,7 @@ $image = $imageObj['sizes']['large'];
 ?>
     <main class="main p-home">
         <nav class="navigation">
-            <a href="/registracija" class="btn btn-black">Registriraj se</a>
+            <?php get_partial('layout/user-navigation')?>
         </nav>
         <div class="cover" style="background-image: url(<?=$image?>);height:300px">
             <div class="cover__image">
