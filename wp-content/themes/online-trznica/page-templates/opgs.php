@@ -13,12 +13,7 @@ $opgs = $os->search();
 
     <main class="main">
         <nav class="navigation">
-            <div class="search">
-                <form action="#" class="search__form">
-                    <input type="text" class="search__input" placeholder="Pretraži">
-                    <input type="submit" class="search__submit btn btn-black" value="Pretraži">
-                </form>
-            </div>
+            <?php get_partial('layout/user-navigation')?>
         </nav>
         <div class="horiz">
             <h1 class="horiz__heading">OPG-ovi</h1>
