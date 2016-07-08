@@ -21,7 +21,7 @@ $categories = ProductsSearch::getCategories();
         <div class="horiz">
             <div class="filter">
                 <form action="#" class="filter__form">
-                    <select>
+                    <select data-id="on-change">
                         <option value="0" selected>Kategorija</option>
                         <?php
                         foreach($categories as $category) {
@@ -33,7 +33,7 @@ $categories = ProductsSearch::getCategories();
             </div>
             <div class="filter">
                 <form action="#" class="filter__form">
-                    <select>
+                    <select data-id="on-change">
                         <option value="0" selected>OPG</option>
                         <?php
                         foreach($opgs as $id => $name) {

@@ -8,7 +8,7 @@
 <div class="products__item">
     <div class="products__image">
         <?php if ($data['isOpg']){ ?>
-            <p class="products__opg"><?=$data['isOpg']?></p>
+            <p class="products__opg"><?=$data['opgName']?></p>
         <?php } ?>
         <img src="<?=$data['slike']['sizes']['large']?>" class="products__source" alt="">
     </div>
