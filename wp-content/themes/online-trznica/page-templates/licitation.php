@@ -110,6 +110,7 @@ $tables = [
                 <input type="submit" class="offer__submit btn btn-red" value="Licitiraj">
             </form>
         </div>
+        <?php get_partial('layout/_footer'); ?>
     </main>
     <div class="remodal remodal-thanks" data-remodal-id="thanks">
         <button data-remodal-action="close" class="remodal-close"></button>

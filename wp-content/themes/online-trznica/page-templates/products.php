@@ -60,6 +60,7 @@ $categories = ProductsSearch::getCategories();
                 <a href="#" class="load-more__anchor btn btn-black">Učitaj više</a>
             </div>
         </div>
+        <?php get_partial('layout/_footer'); ?>
     </main>
 
 <?php

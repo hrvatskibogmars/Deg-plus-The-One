@@ -78,6 +78,7 @@ get_header();
                 </form>
             </div>
         </div>
+        <?php get_partial('layout/_footer'); ?>
     </main>
 
 

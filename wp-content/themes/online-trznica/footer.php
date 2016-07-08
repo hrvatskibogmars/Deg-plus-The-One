@@ -12,13 +12,12 @@
  */
 
 ?>
-<!-- FOOTER -->
-<?php get_partial('layout/_footer') ?>
-<!-- /FOOTER -->
 
 <!-- SCRIPTS -->
 <?php
-get_partial('layout/_scripts')
+get_partial('layout/_scripts');
+
+wp_footer();
 ?>
 <!-- /SCRIPTS -->
 

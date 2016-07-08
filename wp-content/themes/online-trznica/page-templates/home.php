@@ -34,6 +34,8 @@ $posts = $query->get_posts();
                 }
             ?>
         </div>
+        
+        <?php get_partial('layout/_footer'); ?>
     </main>
 
 <?php
