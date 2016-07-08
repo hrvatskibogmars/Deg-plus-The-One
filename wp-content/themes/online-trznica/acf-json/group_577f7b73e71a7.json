@@ -149,7 +149,7 @@
             "key": "field_577f7d4a21f5b",
             "label": "Certifikati",
             "name": "certificates",
-            "type": "gallery",
+            "type": "image",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -166,10 +166,8 @@
                 "class": "",
                 "id": ""
             },
-            "min": "",
-            "max": "",
+            "return_format": "array",
             "preview_size": "thumbnail",
-            "insert": "append",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -424,5 +422,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1467979606
+    "modified": 1467985473
 }
