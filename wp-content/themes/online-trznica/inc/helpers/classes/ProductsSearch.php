@@ -50,7 +50,13 @@ class ProductsSearch
             $this->category = array($this->category);
         }
 
-        $this->arguments['category__in'] = $this->category;
+        $this->arguments['tax_query'] = array(
+            array(
+                'taxonomy' => 'kategorija',
+                'field'    => 'slug',
+                'terms'    => $this->category,
+            ),
+        );
     }
 
     private function initOPGArguments()
@@ -115,5 +121,30 @@ class ProductsSearch
         $this->order = $order;
     }
 
+
+    public function getOPGs()
+    {
+        $query = new WP_User_Query(
+            [
+                'role' => 'Korisnik',
+                'meta_key' => 'opg',
+                'meta_value' => "1",
+                'meta_compare' => "="
+            ]
+        );
+
+        $users = $query->get_results();
+
+        $output = [];
+
+        foreach($users as $user) {
+            /**
+             * @var $user WP_User
+             */
+            $output[$user->ID] = get_user_meta($user->ID, 'name', true);
+        }
+
+        return $output;
+    }
 
 }

@@ -3,4 +3,5 @@
 
 the_post();
 
-
+$ps = new ProductsSearch();
+$opg = $ps->getOPGs();

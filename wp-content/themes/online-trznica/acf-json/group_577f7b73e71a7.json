@@ -88,8 +88,37 @@
             "disabled": 0
         },
         {
+            "key": "field_577fb3544b8c7",
+            "label": "Opis",
+            "name": "description",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_577f7bf021f57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_577f7cdf21f59",
-            "label": "MIBPG\/OIB",
+            "label": "MIBPG",
             "name": "oib",
             "type": "text",
             "instructions": "",
@@ -422,5 +451,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1467985473
+    "modified": 1467986818
 }
