@@ -39,21 +39,6 @@ $opgs = $os->search();
                         get_partial('opgs/item', array("data" => getOPGData($opg)));
                     }
                 ?>
-                <li class="horiz__item">
-                    <div class="horiz__image">
-                        <img src="static/img/prod2.jpg" alt="" class="horiz__source">
-                    </div>
-                    <div class="horiz__info">
-                        <span class="horiz__type">OPG</span>
-                        <p class="horiz__title">OPG1</p>
-                        <p class="horiz__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque consequatur cupiditate, earum eligendi</p>
-                    </div>
-                    <div class="horiz__contact">
-                        <p>Ulica Koprivnica 11</p>
-                        <p>Koprivnica</p>
-                        <a href="mailto:mn@gmail.com?Subject=Kontakt (Online tržnica)">Pošalji email</a>
-                    </div>
-                </li>
             </ul>
             <div class="load-more">
                 <a href="#" class="load-more__anchor btn btn-black">Učitaj više</a>
