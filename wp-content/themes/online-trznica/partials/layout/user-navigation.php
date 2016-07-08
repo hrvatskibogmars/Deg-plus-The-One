@@ -18,5 +18,9 @@ if(!is_user_logged_in()) {
     <a href="<?=wp_logout_url( get_site_url() )?>" class="btn btn-black">Odjavite se</a>
 <?php
 }
+?>
+    <a href="/" class="nav-item">O tržnici</a>
+    <a href="/proizvodi" class="nav-item">Proizvodi</a>
+    <a href="/opg" class="nav-item">OPG</a>
 
 

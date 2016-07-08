@@ -40,7 +40,7 @@ get_header();
 
     <main class="main">
         <nav class="navigation">
-
+            <?php get_partial('layout/user-navigation')?>
         </nav>
         <div class="horiz horiz__cart">
             <h1 class="horiz__heading">Košarica</h1>
