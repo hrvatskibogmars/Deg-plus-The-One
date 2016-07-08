@@ -250,6 +250,10 @@ $(function () {
         // window.location="http://localhost:63342/deg-1/"
     });
     //webJS.common.waypointAnimation();
+    
+    jQuery('[data-id="on-change"]').on('change', function(event){
+        $(this).parent().submit();
+    })
 });
 
 function findMaxMin(){

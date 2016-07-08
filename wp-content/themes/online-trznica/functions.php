@@ -154,7 +154,5 @@ function formatProductPrice($data) {
 }
 
 add_action('acf/save_post', function( $post_id) {
-    if($post_id == "options" && $_POST["something"]) $t = 2;
-
-    $t = 1;
+    
 });

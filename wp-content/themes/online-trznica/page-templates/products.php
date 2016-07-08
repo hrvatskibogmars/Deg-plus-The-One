@@ -4,6 +4,12 @@
 the_post();
 get_header();
 $ps = new ProductsSearch();
+if(isset($_REQUEST['category'])){
+    $ps->setCategory($_REQUEST['category']);
+}
+if(isset($_REQUEST['opg'])){
+    $ps->setOpg($_REQUEST['opg']);
+}
 $products = $ps->search();
 
 $opgs = $ps->getOPGs();
@@ -21,7 +27,7 @@ $categories = ProductsSearch::getCategories();
         <div class="horiz">
             <div class="filter">
                 <form action="#" class="filter__form">
-                    <select data-id="on-change">
+                    <select data-id="on-change" name="category">
                         <option value="0" selected>Kategorija</option>
                         <?php
                         foreach($categories as $category) {
@@ -33,7 +39,7 @@ $categories = ProductsSearch::getCategories();
             </div>
             <div class="filter">
                 <form action="#" class="filter__form">
-                    <select data-id="on-change">
+                    <select data-id="on-change" name="opg">
                         <option value="0" selected>OPG</option>
                         <?php
                         foreach($opgs as $id => $name) {
