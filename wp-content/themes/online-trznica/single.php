@@ -10,7 +10,7 @@ $image = $imageObj['sizes']['large'];
         <nav class="navigation">
             <a href="/registracija" class="btn btn-black">Registriraj se</a>
         </nav>
-        <div class="cover" style="background-image: url(<?=$image?>);">
+        <div class="cover" style="background-image: url(<?=$image?>);height:300px">
             <div class="cover__image">
                 <div class="cover__text">
                     <h1><?=get_the_title()?></h1>
