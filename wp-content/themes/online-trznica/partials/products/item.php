@@ -14,7 +14,7 @@
     </div>
     <div class="products__info">
         <h3 class="products__title"><?= $data['title'] ?></h3>
-        <p class="products__desc"><?= $data['short_description'] ?></p>
+        <p class="products__desc"><?= $data['description'] ?></p>
     </div>
     <div class="products__buy">
         <p class="products__price"><?=$data['price']?></p>

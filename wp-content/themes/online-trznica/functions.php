@@ -133,7 +133,7 @@ function getOPGData(WP_User $user) {
 
     return [
         'title' => get_field('name', $userId),
-        'short_description' => get_field('short_description', $userId),
+        'description' => get_field('description', $userId),
         'address' => get_field('address', $userId),
         'email' => $user->user_email,
         'profile_image' => get_field('profile_image', $userId),

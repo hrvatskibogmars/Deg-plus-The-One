@@ -5,6 +5,7 @@ the_post();
 get_header();
 $ps = new ProductsSearch();
 $opg = $ps->getOPGs();
+$categories = ProductsSearch::getCategories();
 ?>
     <main class="main">
         <nav class="navigation">
