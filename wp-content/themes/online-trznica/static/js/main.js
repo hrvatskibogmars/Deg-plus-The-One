@@ -199,22 +199,66 @@ $(function () {
     $(".tables__anchor").on("click",function(e){
         e.preventDefault();
         if(!$(this).hasClass("tables__anchor--occupied")){
-            $(this).addClass("tables__anchor--active");
+            $(this).toggleClass("tables__anchor--active");
         }
-    })
+    });
     $(".reset__anchor").on("click",function(e){
         e.preventDefault();
         $(".tables__anchor--active").each(function(i,e){
             $(e).removeClass("tables__anchor--active");
         })
-    })
+    });
     $(".offer__form").submit(function(e){
         e.preventDefault();
-       var inst= $('[data-remodal-id=thanks]').remodal();
-        inst.open();
-    })
+        
+        var licitations = [];
+        var minPrice = findMaxMin();
+        var offerPrice = $(".offer__input").val();
+        
+        $.each( $(".tables__anchor--active"), function(index, obj){
+            console.log($(obj).attr('data-id'));
+            licitations.push( $(obj).data("id") );
+        });
+        
+        if(licitations.length == 0 ) {
+            alert("Molimo Vas, odaberite barem jedan stol za licitaciju.");
+            return false;
+        }
+
+        if(offerPrice < minPrice) {
+            alert("Molimo Vas, ponudite više da bi pokrili sve minimalne iznose.");
+            return false;
+        }
+
+        console.log(licitations);
+        
+        $.ajax({
+            url : '/api/v1/licitation/add',
+            method: 'POST',
+            data : {
+                tableId : licitations,
+                amount : offerPrice
+            }
+        }).success(function(event){
+            var inst= $('[data-remodal-id=thanks]').remodal();
+            inst.open();
+        });
+        
+
+    });
     $(document).on('closed', '.remodal-thanks', function (e) {
-        window.location="http://localhost:63342/deg-1/"
+        // window.location="http://localhost:63342/deg-1/"
     });
     //webJS.common.waypointAnimation();
 });
+
+function findMaxMin(){
+    var min = 100;
+    $.each($(".tables__anchor--active"), function(index, obj){
+        var minPrice = $(obj).data("min");
+
+        if(minPrice > min) min = minPrice;
+    });
+    
+    return min;
+}
