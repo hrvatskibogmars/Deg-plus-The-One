@@ -49,7 +49,7 @@ $posts = $query->get_posts();
                         <li class="events__item">
                             <a href="">
                                 <div class="events__inner" style="background-size:cover;background-image:url(<?=$image['sizes']['large']?>)">
-                                    <h2 class="events__content"><?=$p->post_content?></h2>
+                                    <div style="background: rgba(255,255,255,0.3)"><h2 class="events__content"><?=$p->post_content?></h2></div>
                                 </div>
                             </a>
                         </li>
