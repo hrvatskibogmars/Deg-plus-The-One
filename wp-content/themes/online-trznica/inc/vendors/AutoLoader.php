@@ -9,6 +9,7 @@ class AutoLoader {
         "ShortcodeLoader" => "shortcodes/ShortcodeLoader",
         "partials" => "helpers/partials",
         "images" => "helpers/images",
+        "roles" => "helpers/roles",
         "relations" => "helpers/relations",
         "UpdateChecker" => "theme-update-checker",
         "plugin-dependency" => "plugin-dependency",

@@ -90,59 +90,28 @@ function themes_taxonomy() {
 }
 add_action( 'init', 'themes_taxonomy');
 
-function create_restaurant_post_type() {
-    register_post_type( 'restaurant',
+function create_product_post_type() {
+    register_post_type( 'product',
         array(
             'labels' => array(
-                'name' => __( 'Restaurants' ),
-                'singular_name' => __( 'Restaurant' )
+                'name' => __( 'Proizvodi' ),
+                'singular_name' => __( 'Proizvod' )
             ),
             'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt'),
             'public'             => true,
             'publicly_queryable' => true,
+            'map_meta_cap' => true,
+            'capability_type' => 'product',
             'has_archive' => true,
             'hierarchical' => false,
             'rewrite' => array('slug' => 'restaurant', 'with_front' => true),
         )
     );
-}
-add_action( 'init', 'create_restaurant_post_type' );
 
-function create_wine_post_type() {
-    register_post_type( 'wine',
-        array(
-            'labels' => array(
-                'name' => __( 'Wine' ),
-                'singular_name' => __( 'Wine' )
-            ),
-            'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-            'public'             => true,
-            'publicly_queryable' => true,
-            'has_archive' => true,
-            'hierarchical' => false,
-            'rewrite' => array('slug' => 'wine', 'with_front' => true),
-        )
-    );
 }
-add_action( 'init', 'create_wine_post_type' );
+add_action( 'init', 'create_product_post_type' );
 
-function create_list_post_type() {
-    register_post_type( 'list',
-        array(
-            'labels' => array(
-                'name' => __( 'Lists' ),
-                'singular_name' => __( 'List' )
-            ),
-            'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-            'public'             => true,
-            'publicly_queryable' => true,
-            'has_archive' => true,
-            'hierarchical' => false,
-            'rewrite' => array('slug' => 'list', 'with_front' => true),
-        )
-    );
-}
-add_action( 'init', 'create_list_post_type' );
+
 
 
 

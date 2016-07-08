@@ -69,3 +69,28 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 
+add_action( 'user_register', function( $user_id) {
+
+}, 10, 1 );
+
+
+
+add_action('admin_init','korisnik_add_role',999);
+function korisnik_add_role()
+{
+
+    // Add the roles you'd like to administer the custom post types
+    $roles = array('Korisnik');
+
+    // Loop through each role and assign capabilities
+    foreach ($roles as $the_role) {
+
+        $role = get_role($the_role);
+
+        $role->add_cap('read_product');
+        $role->add_cap('edit_product');
+        $role->add_cap('publish_product');
+        $role->add_cap('delete_published_product');
+
+    }
+}
