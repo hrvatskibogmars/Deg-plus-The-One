@@ -19,7 +19,7 @@ if(!is_user_logged_in()) {
 <?php
 }
 ?>
-    <a href="/" class="nav-item">O tržnici</a>
+    <a href="http://46.101.107.16/?p=122&preview=true" class="nav-item">O tržnici</a>
     <a href="/proizvodi" class="nav-item">Proizvodi</a>
     <a href="/opg" class="nav-item">OPG</a>
 
