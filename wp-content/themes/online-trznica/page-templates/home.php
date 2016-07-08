@@ -47,9 +47,11 @@ $posts = $query->get_posts();
                         $image = get_field('image', $p->ID);
                         ?>
                         <li class="events__item">
-                            <a href="">
+                            <a href="<?=get_permalink($p->ID)?>">
                                 <div class="events__inner" style="background-size:cover;background-image:url(<?=$image['sizes']['large']?>)">
-                                    <div style="background: rgba(255,255,255,0.3)"><h2 class="events__content"><?=$p->post_content?></h2></div>
+                                    <div style="background-color: rgba(255,255,255,0.3)">
+                                        <h2 class="events__content"><?=$p->post_content?></h2>
+                                    </div>
                                 </div>
                             </a>
                         </li>
