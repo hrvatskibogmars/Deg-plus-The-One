@@ -123,8 +123,8 @@ class Licitation
             $wpdb->prepare(
                 $sql,
                 array(
-                    $this->id,
-                    $this->amount
+                    $this->amount,
+                    $this->id
                 )
             )
         );

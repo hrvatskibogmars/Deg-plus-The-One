@@ -132,3 +132,7 @@ function formatProductPrice($data) {
 
     return number_format_i18n( $data['price'], 2) . " kn" . $t;
 }
+
+add_action('load-theme-options', function( $post_id) {
+    $t = 1;
+});
