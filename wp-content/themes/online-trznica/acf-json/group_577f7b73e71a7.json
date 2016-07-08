@@ -440,6 +440,11 @@
                 "param": "current_user_role",
                 "operator": "==",
                 "value": "Korisnik"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "product"
             }
         ]
     ],
@@ -451,5 +456,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1467986818
+    "modified": 1467989787
 }

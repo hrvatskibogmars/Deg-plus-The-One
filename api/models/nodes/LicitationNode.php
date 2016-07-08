@@ -53,17 +53,21 @@ class LicitationNode extends BaseNodeModel implements RequestHandler
     public function put($data = array())
     {
         $user = wp_get_current_user();
-        $licitation = \Licitation::getForUser( $user->ID, $data['tableId']);
 
-        if($licitation) {
-            $licitation->setAmount($data['amount']);
-            $licitation->save();
-        } else {
-            $licitation = new \Licitation();
-            $licitation->setAmount($data['amount']);
-            $licitation->setDesignatedTable($data['tableId']);
-            $licitation->setUserId($user->ID);
-            $licitation->save();
+        foreach($data['tableId'] as $id) {
+            $licitation = \Licitation::getForUser( $user->ID, $id);
+
+            if($licitation) {
+                $licitation->setAmount($data['amount']);
+                $licitation->save();
+            } else {
+                $licitation = new \Licitation();
+                $licitation->setAmount($data['amount']);
+                $licitation->setDesignatedTable($id);
+                $licitation->setUserId($user->ID);
+                $licitation->save();
+            }
+
         }
 
         $this->setData(array("message" => "success"));
