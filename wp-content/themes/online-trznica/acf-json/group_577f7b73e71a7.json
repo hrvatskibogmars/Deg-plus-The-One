@@ -442,9 +442,9 @@
                 "value": "Korisnik"
             },
             {
-                "param": "post_type",
-                "operator": "!=",
-                "value": "product"
+                "param": "user_form",
+                "operator": "==",
+                "value": "all"
             }
         ]
     ],
@@ -456,5 +456,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1467989787
+    "modified": 1467990407
 }

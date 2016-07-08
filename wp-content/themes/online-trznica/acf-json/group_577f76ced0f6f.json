@@ -55,7 +55,7 @@
             "key": "field_577f778c770b3",
             "label": "Slike",
             "name": "slike",
-            "type": "gallery",
+            "type": "image",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -64,10 +64,8 @@
                 "class": "",
                 "id": ""
             },
-            "min": "",
-            "max": "",
+            "return_format": "array",
             "preview_size": "thumbnail",
-            "insert": "append",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -116,5 +114,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1467980497
+    "modified": 1467990799
 }

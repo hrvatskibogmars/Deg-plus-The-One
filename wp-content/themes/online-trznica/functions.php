@@ -132,3 +132,9 @@ function formatProductPrice($data) {
 
     return number_format_i18n( $data['price'], 2) . " kn" . $t;
 }
+
+add_action('acf/save_post', function( $post_id) {
+    if($post_id == "options" && $_POST["something"]) $t = 2;
+
+    $t = 1;
+});
