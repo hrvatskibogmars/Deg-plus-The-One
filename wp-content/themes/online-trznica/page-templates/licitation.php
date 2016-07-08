@@ -56,9 +56,6 @@ $tables = [
 
 ?>
     <main class="main p-bidding">
-        <nav class="navigation">
-            <?php get_partial('layout/user-navigation')?>
-        </nav>
         <div class="cover">
             <div class="cover__image">
                 <div class="cover__text">

@@ -12,7 +12,7 @@
     <div class="horiz__info">
         <span class="horiz__type">OPG</span>
         <p class="horiz__title"><?=$data['title']?></p>
-        <p class="horiz__desc"><?=$data['short_description']?></p>
+        <p class="horiz__desc"><a href="<?=$data['certificate']?>" target="_blank">Certifikat</a> </p>
     </div>
     <div class="horiz__contact">
         <?php

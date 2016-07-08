@@ -6,7 +6,9 @@
  * Time: 14:24
  */
 
-
+?>
+<div class="navigation__inner">
+<?php
 if(!is_user_logged_in()) {
     ?>
     <a href="/sign-up" class="btn btn-black">Registriraj se</a>
@@ -24,3 +26,4 @@ if(!is_user_logged_in()) {
     <a href="/opg" class="nav-item">OPG</a>
 
 
+</div>
