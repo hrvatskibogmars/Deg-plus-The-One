@@ -4,19 +4,13 @@
  * Created by PhpStorm.
  * User: vilimstubican
  * Date: 08/07/16
- * Time: 14:58
+ * Time: 18:03
  */
-class ProductsSearch
+class OPGSearch
 {
-    const PRICE_ASC     = "ASC";
-    const PRICE_DESC    = "DESC";
-
     private $category = 0;
-    private $opg = 0;
     private $page = 1;
     private $perPage = 12;
-    private $order = self::PRICE_ASC;
-
 
     private $arguments = [];
 
@@ -26,19 +20,8 @@ class ProductsSearch
 
         $this->initCategoryArguments();
 
-        $this->initOPGArguments();
-
-        $this->initOrderArguments();
-
-        $query = new WP_Query( $this->arguments );
-        return $query->get_posts();
-    }
-
-    private function initOrderArguments()
-    {
-        $this->arguments['orderby'] = 'meta_value_num';
-        $this->arguments['order']   = $this->order;
-        $this->arguments['meta_key']= 'price';
+        $query = new WP_User_Query( $this->arguments );
+        return $query->get_results();
     }
 
     private function initCategoryArguments()
@@ -59,25 +42,14 @@ class ProductsSearch
         );
     }
 
-    private function initOPGArguments()
-    {
-        if($this->opg == 0) {
-            return;
-        }
-        if(!is_array($this->opg)) {
-            $this->opg = array($this->opg);
-        }
 
-        $this->arguments['author__in'] = $this->opg;
-    }
 
     private function initArguments()
     {
         $this->arguments = [
-            "post_type" => "product",
-            "page" => $this->page,
-            "posts_per_page" => $this->perPage,
-            "post_status" => "publish"
+            'role' => 'Korisnik',
+            'meta_key' => 'opg',
+            'meta_value' => '1'
         ];
     }
 
@@ -152,8 +124,8 @@ class ProductsSearch
         $terms = get_terms( 'kategorija', array(
             'hide_empty' => false,
         ) );
-        
-        
+
+
         return $terms;
     }
 

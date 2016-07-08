@@ -1,0 +1,67 @@
+<?php /** Template name: OPGs */?>
+<?php
+the_post();
+
+get_header();
+
+$categories = ProductsSearch::getCategories();
+
+$os = new OPGSearch();
+$opgs = $os->search();
+
+?>
+
+    <main class="main">
+        <nav class="navigation">
+            <div class="search">
+                <form action="#" class="search__form">
+                    <input type="text" class="search__input" placeholder="Pretraži">
+                    <input type="submit" class="search__submit btn btn-black" value="Pretraži">
+                </form>
+            </div>
+        </nav>
+        <div class="horiz">
+            <div class="filter">
+                <form action="#" class="filter__form">
+                    <select>
+                        <option value="0" selected>Kategorija</option>
+                        <?php
+                            foreach($categories as $category) {
+                                echo '<option value="'.$category->slug.'">'.$category->name.'</option>';
+                            }
+                        ?>
+                    </select>
+                </form>
+            </div>
+            <ul class="horiz__list">
+                <?php
+                    foreach($opgs as $opg) {
+                        get_partial('opgs/item', array("data" => getOPGData($opg)));
+                    }
+                ?>
+                <li class="horiz__item">
+                    <div class="horiz__image">
+                        <img src="static/img/prod2.jpg" alt="" class="horiz__source">
+                    </div>
+                    <div class="horiz__info">
+                        <span class="horiz__type">OPG</span>
+                        <p class="horiz__title">OPG1</p>
+                        <p class="horiz__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque consequatur cupiditate, earum eligendi</p>
+                    </div>
+                    <div class="horiz__contact">
+                        <p>Ulica Koprivnica 11</p>
+                        <p>Koprivnica</p>
+                        <a href="mailto:mn@gmail.com?Subject=Kontakt (Online tržnica)">Pošalji email</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="load-more">
+                <a href="#" class="load-more__anchor btn btn-black">Učitaj više</a>
+            </div>
+        </div>
+    </main>
+
+
+
+<?php
+get_footer();

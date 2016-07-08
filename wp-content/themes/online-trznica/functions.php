@@ -111,15 +111,35 @@ function korisnik_add_role()
 function getProductData(WP_Post $post) {
     $fields = get_fields($post->ID);
 
+    $isOpg = get_user_meta($post->post_author, 'opg', true);
+    $opgName = $isOpg ? get_user_meta($post->post_author, 'name', true) : "";
     return array_merge(
         $fields,
         array(
             "title" => $post->post_title,
             "id" => $post->ID,
-            "price" => formatProductPrice($fields)
+            "price" => formatProductPrice($fields),
+            'isOpg' => $isOpg,
+            'opgName' => $opgName,
         )
     );
 }
+
+
+
+function getOPGData(WP_User $user) {
+
+    $userId = "user_" . $user->ID;
+
+    return [
+        'title' => get_field('name', $userId),
+        'short_description' => get_field('short_description', $userId),
+        'address' => get_field('address', $userId),
+        'email' => $user->user_email,
+        'profile_image' => get_field('profile_image', $userId),
+    ];
+}
+
 
 function formatProductPrice($data) {
     switch($data['unit']) {
