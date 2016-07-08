@@ -1,0 +1,38 @@
+.page {
+
+    &--left {
+        @include suffix(3 of 18);
+        @include full();
+
+        @include MQ(mobile) {
+            padding: 0;
+        }
+    }
+
+    // header
+    &__header {
+
+        .above-heading {
+            padding-top: 40px;
+        }
+    }
+
+    // content
+    &__content {
+        p {
+            @include font-size-map($font-size-15);
+        }
+    }
+
+    // form
+    &__form {
+        @include full();
+        @include suffix(7 of 18);
+    }
+
+    &__share {
+        padding-top: 150px;
+        @include pad(1 of 3, 0);
+        text-align: center;
+    }
+}

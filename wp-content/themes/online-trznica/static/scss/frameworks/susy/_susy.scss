@@ -1,0 +1,33 @@
+// SASY TUTORIAL
+
+
+// The Container Mixin
+// @include container( [<length>] );
+
+// Note: Optional arguments are enclosed in []
+
+
+// Span (Mixin)
+// @include span( <width> [<wide / wider>] of <layout> [<last>] );
+// Example:
+// This has a width of 3 columns + 1 gutter, out of 9 columns and is supposed to be the last item within the context.
+// .some-selector {
+//     @include span(3 wide of 9 last);
+// }
+
+// Span (Function)
+// This has a width of 3 columns out of 9 columns
+// .some-selector {
+//     width: span(3 of 9);
+// }
+
+// This has a padding of 1 column out of 9 columns
+// .some-selector {
+//     padding-left: span(1 of 9);
+// }
+
+// Gutter Function
+// This outputs margin that equals to 1 gutter width in a 9 column layout
+// .some-selector {
+//     margin-right: gutter(9);
+// }

@@ -1,0 +1,35 @@
+// single
+.post, .is-post {
+    h1, h2, h3, h4, h5, h6 {
+        width: 100%;
+        display : inline-block;
+    }
+
+    figure, img {
+        margin-bottom: 1.4em;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+    }
+
+    blockquote {
+        color: $dark-grey;
+        @include font-size-map($font-size-h3);
+        font-family: $playfair-italic;
+        line-height: 1.5em;
+        margin: 0;
+        margin-bottom: 1.4em;
+    }
+
+    @include MQ(desktop) {
+
+        > * {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

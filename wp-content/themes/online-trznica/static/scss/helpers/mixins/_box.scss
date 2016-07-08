@@ -1,0 +1,68 @@
+@mixin backface-visibility($backface-visibility: inherit) {
+    -webkit-backface-visibility: $backface-visibility;
+    -moz-backface-visibility: $backface-visibility;
+    backface-visibility: $backface-visibility;
+}
+
+@mixin border-box($var: true) {
+    @if ($var) {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    } @else {
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+    }
+}
+
+@mixin border-radius($radius: 0, $position: all, $top-left: $radius, $top-right: $radius, $bottom-right: $radius, $bottom-left: $radius) {
+    @if $radius == 'circle' {
+        border-radius: 100%;
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+    } @else {
+        @if $position == 'all' {
+            border-radius: $radius;
+            -moz-border-radius: $radius;
+            -webkit-border-radius: $radius;
+        }
+        @else if $position == 'top' {
+            border-radius: $radius $radius 0 0;
+            -moz-border-radius: $radius $radius 0 0;
+            -webkit-border-radius: $radius $radius 0 0;
+        }
+        @else if $position == 'bottom' {
+            border-radius: 0 0 $radius $radius;
+            -moz-border-radius: 0 0 $radius $radius;
+            -webkit-border-radius: 0 0 $radius $radius;
+        }
+        @else if $position == 'left' {
+            border-radius: $radius 0 0 $radius;
+            -moz-border-radius: $radius 0 0 $radius;
+            -webkit-border-radius: $radius 0 0 $radius;
+        }
+        @else if $position == 'right' {
+            border-radius: 0 $radius $radius 0;
+            -moz-border-radius: 0 $radius $radius 0;
+            -webkit-border-radius: 0 $radius $radius 0;
+        }
+        @else {
+            border-radius: $top-left $top-right $bottom-right $bottom-left;
+            -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+            -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+        }
+    }
+}
+
+@mixin box-shadow($color: transparent, $h-shadow: 0, $v-shadow: 0, $blur: 0, $spread: 0, $type: none) {
+    @if $type == "inset" {
+        box-shadow: $h-shadow $v-shadow $blur $spread $color inset;
+        -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color inset;
+        -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color inset;
+    } @else {
+        box-shadow: $h-shadow $v-shadow $blur $spread $color;
+        -moz-box-shadow: $h-shadow $v-shadow $blur $spread $color;
+        -webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color;
+    }
+}

@@ -1,0 +1,43 @@
+//COOKIE MESSAGE
+.cookie-message-wrapper {
+    @include span(7 of 24);
+    @include pre(2 of 24);
+    @include prefix(1 of 24);
+    @include suffix(1 of 24);
+    background-color: $black-90;
+    position: fixed;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    left: 0;
+    bottom: 60px;
+    opacity: 0;
+    z-index: 99;
+
+    @include MQ(tablet) {
+        @include span(20 of 24);
+    }
+
+    @include MQ(mobile) {
+        @include span(full);
+        @include pre(0);
+        padding: 25px 20px;
+        bottom: 0;
+    }
+}
+
+.cookie-message {
+    small {
+        display: block;
+        color: $light-grey-A;
+
+        a {
+            color: $vine-red;
+        }
+    }
+
+    .button--green {
+        margin-top: 15px;
+        cursor: pointer;
+        padding: 12px 27px 9px 27px;
+    }
+}

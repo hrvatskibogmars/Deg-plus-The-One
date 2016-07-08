@@ -1,0 +1,128 @@
+.box-wrapper {
+    left: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    width: 100%;
+}
+
+.box {
+    background: $vine-red;
+    float: left;
+    height: 33.66%;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    width: 25%
+}
+
+.mobile-navigation {
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    font-family: $playfair-regular;
+    opacity: 0;
+    visibility: hidden;
+    background: transparent;
+
+    > ul {
+        position: absolute;
+        @include pad(1 of 24);
+        width: 100%;
+
+        /* Landscape */
+        @media only screen
+        and (min-device-width: 0px)
+        and (max-device-width: 667px)
+        and (orientation: landscape) {
+        }
+
+        li {
+            height: 16.67%;
+            line-height: 100%;
+            width: 100%;
+            display: table;
+
+            span {
+                display: inline-block;
+                float: left;
+            }
+
+            a {
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+                color: $white-100;
+                font-size: 5vh;
+                text-align: center;
+
+                &.primary__lang {
+                    display: inline-block;
+                    max-width: calc(50% - 1px);
+                    float: left;
+                }
+
+                @include MQ(mobile) {
+                    font-size: 3.5vh;
+                }
+
+                /* Landscape */
+                @media only screen
+                and (min-device-width: 0px)
+                and (max-device-width: 667px)
+                and (orientation: landscape) {
+                    font-size: 5vh;
+                }
+            }
+        }
+    }
+
+    .search-wrapper {
+        width: 100%;
+        //height: 42px;
+
+        form {
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: auto;
+            display: table-cell;
+            vertical-align: middle;
+
+            fieldset {
+                display: block;
+                @include clearfix();
+                margin: 0;
+            }
+
+            input {
+                backface-visibility: hidden;
+                top: 0;
+                position: relative;
+                right: 0;
+                background: $white-0;
+                padding: 12px 20px;
+                padding-left: 42px;
+                padding-right: 20px;
+                border-radius: 42px;
+                float: right;
+                transition: all 0.25s ease-in-out;
+                background-size: 22px 22px;
+                background-position: 10px center;
+                background-repeat: no-repeat;
+                will-change: padding-right, background, width, color;
+                cursor: pointer;
+
+                background-image: url('../ui/svg/search-grey.svg');
+                width: 100%;
+                border-color: $white-100;
+                background-color: $white-100;
+            }
+        }
+    }
+}

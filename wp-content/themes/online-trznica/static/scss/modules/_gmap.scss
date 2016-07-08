@@ -1,0 +1,22 @@
+.gmap {
+    width: 100%;
+    padding-bottom: 50%;
+
+    &__wrapper {
+        padding-top: 50px;
+        clear: both;
+        @include clearfix();
+
+        @include MQ(tablet) {
+            padding: 35px 0;
+        }
+
+        @include MQ(mobile) {
+            padding: 25px 0;
+        }
+    }
+
+    &--detail {
+
+    }
+}

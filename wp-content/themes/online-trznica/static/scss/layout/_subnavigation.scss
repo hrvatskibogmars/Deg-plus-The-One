@@ -1,0 +1,83 @@
+//SUB NAVIGATION
+.subnavigation-wrapper {
+    background-color: $light-grey-B;
+    color: $vine-red;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.subnavigation {
+    padding: 16px 0;
+
+    @include MQ(mobile) {
+        padding: 8px 0;
+    }
+}
+
+.sub-navigation {
+    @include full();
+    text-align: right;
+    height: 40px;
+
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    ul {
+        text-align: left;
+
+        margin: 0;
+        padding-bottom: 5rem;
+        list-style: none;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .is-home & {
+        @include full();
+
+        ul {
+            text-align: center;
+        }
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    a {
+        color: $vine-red;
+        display: block;
+        font-family: $roboto-regular;
+        text-decoration: none;
+        font-size: 17px;
+        padding: 10px 22px;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: 2px;
+            left: 30px;
+            width: 60px;
+            height: 1px;
+            background-color: $vine-red;
+            transition: $slide-slow;
+            opacity: 0;
+            will-change: width, opacity, right;
+        }
+
+        &:hover {
+            &:before {
+                width: 20px;
+                left: -10px;
+                opacity: 1;
+            }
+        }
+    }
+}

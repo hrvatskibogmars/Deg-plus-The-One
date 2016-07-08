@@ -1,0 +1,65 @@
+// Sass Mixin for typekit variation-specific font-family names
+// Typekit IE6-8 Support (http://help.typekit.com/customer/portal/articles/6855-Using-multiple-weights-and-styles)
+
+// Based on https://gist.github.com/plapier/3988984
+
+$lucida-grande: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+$georgia: Georgia, "Times New Roman", serif;
+
+// Must include fallbacks for EACH typekit font — set them each as variables
+//************************************************************************//
+
+$typekit-fonts:     "raleway", '';  // index [1, 2]
+$typekit-fallbacks:  $lucida-grande;
+
+@mixin font($weight: 400, $style: normal, $font: 1) {
+    $font-weight: $weight;
+    $font-style:  $style;
+
+    // Translate Weight
+    @if ($weight == 100) or ($weight == thin) or ($weight == ultralight) {
+        $weight: 1;
+    }
+    @if ($weight == 200) or ($weight == extralight) {
+        $weight: 2;
+    }
+    @if ($weight == 300) or ($weight == light) {
+        $weight: 3;
+    }
+    @if ($weight == 400) or ($weight == normal) or ($weight == regular) {
+        $weight: 4;
+    }
+    @if ($weight == 500) or ($weight == medium) {
+        $weight: 5;
+    }
+    @if ($weight == 600) or ($weight == semibold) or ($weight == demi) {
+        $weight: 6;
+    }
+    @if ($weight == 700) or ($weight == bold) {
+        $weight: 7;
+    }
+    @if ($weight == 800) or ($weight == extrabold) {
+        $weight: 8;
+    }
+    @if ($weight == 900) or ($weight == black) or ($weight == heavy) {
+        $weight: 9;
+    }
+
+    // Translate Style
+    @if $style == normal {
+        $style: n;
+    }
+    @else if $style == italic {
+        $style: i;
+    }
+
+    // Assemble $font-family
+    $primary-font:   nth($typekit-fonts, $font) + "-" + $style + $weight;
+    $secondary-font: nth($typekit-fonts, $font);
+    $fallback-fonts: nth($typekit-fallbacks, $font);
+    $font-family:    quote($primary-font), quote($secondary-font), $fallback-fonts;
+
+    font-family: $font-family;
+    font-style:  $font-style;
+    font-weight: $font-weight;
+}

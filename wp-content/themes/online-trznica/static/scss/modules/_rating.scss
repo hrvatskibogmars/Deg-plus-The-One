@@ -1,0 +1,44 @@
+//GRADES
+.rating {
+    text-align: left;
+
+    &__wrapper {
+        position: relative;
+        @include clearfix;
+    }
+
+    li {
+        @include font-size-map($font-size-25);
+        line-height: 1.2em;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 15px;
+        text-align: center;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__star {
+
+        svg {
+            width: 21px;
+            height: 21px;
+
+            use {
+                fill: $light-grey-E;
+            }
+        }
+
+        &--red {
+
+            svg {
+
+                use {
+                    fill: $vine-red;
+                }
+            }
+        }
+    }
+}

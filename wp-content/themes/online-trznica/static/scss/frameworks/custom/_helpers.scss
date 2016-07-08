@@ -1,0 +1,138 @@
+// NO PADDING CLASSES
+.np-l {
+    padding-left: 0;
+}
+
+.np-r {
+    padding-right: 0;
+}
+
+// Gridblock
+$gridblocks: one two three four five six seven eight nine ten;
+$base: 100;
+
+.gridblock {
+    width: 100%;
+    @extend %clearfix;
+
+    > * {
+        float: left;
+        @include border-box();
+    }
+
+    @each $current-gridblock in $gridblocks {
+        $i: index($gridblocks, $current-gridblock);
+
+        &.#{$current-gridblock} > * {
+            width: calcPercentage($base/$i/100);
+        }
+    }
+}
+
+//	Itemblock
+$itemblocks: one two three four five six seven eight nine ten;
+$marginNbr: 1; // %
+
+@mixin i-block($class, $current-itemblock, $margin, $n) {
+
+    @if ($n) {
+        .itemblock-#{$class} {
+            width: 100%;
+            font-size: 0;
+
+            > * {
+                vertical-align: top;
+                display: inline-block;
+                @include border-box();
+                content:"#{$current-itemblock}";
+
+                // FONT SIZE
+                @include rem(font-size, 12px);
+            }
+
+            $i: index($itemblocks, $current-itemblock);
+            $oi: $i;
+            $i: $i - $n;
+
+            &.#{$current-itemblock} > * {
+                position: relative;
+                width: percentage((1 / $i) * (100 - (($i - 1)  * $margin)) / 100);
+                margin-right: percentage($margin / 100);
+
+                &:nth-child(#{$oi}n) {
+                    margin-right: percentage($margin / 100);
+                }
+
+                &:nth-child(#{$i}n) {
+                    margin-right: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    } @else {
+    .itemblock-#{$class} {
+        width: 100%;
+        font-size: 0;
+
+        > * {
+            vertical-align: top;
+            display: inline-block;
+            @include border-box();
+            content:"#{$current-itemblock}";
+
+            // FONT SIZE
+            @include rem(font-size, 12px);
+        }
+
+        $i: index($itemblocks, $current-itemblock);
+
+        &.#{$current-itemblock} > * {
+            position: relative;
+            width: percentage((1 / $i) * (100 - (($i - 1)  * $margin)) / 100);
+            margin-right: percentage($margin / 100);
+
+            &:nth-child(#{$i}n) {
+                margin-right: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+}
+// EXAMPLE - how to use
+// @include i-block('post-items', 'four', 1, 0);
+
+$i: 1;
+$a: 1;
+$b: 10;
+
+.p-block {
+    float: left;
+
+    &:last-child {
+        margin-right: 0!important;
+    }
+}
+
+// class, width, margin, inrow
+@mixin p-block($classname, $width, $margin, $inrow) {
+
+    .p-block {
+
+        &.#{$classname} {
+            width: percentage((1 / $b) * (100 - (($inrow - 1)  * $margin)) / 100 * $width);
+            margin-right: percentage($margin / 100);
+        }
+    }
+}
+
+// 1/10 * (100 - (3-1) * 1) / 100 * 4
+
+// 0.1 * 98/400

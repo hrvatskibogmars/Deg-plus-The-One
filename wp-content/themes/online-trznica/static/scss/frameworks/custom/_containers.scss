@@ -1,0 +1,173 @@
+// CONTAINERS
+.container {
+    width: columns(24);
+    @include border-box;
+    @extend %clearfix;
+}
+
+.row { @include row(); }
+
+// OFFSETS
+// COLUMNS
+$i: 1;
+@while $i < ($maximum-columns + 1) {
+    .col-#{$i} {
+        width: columns($i);
+        float: left;
+    }
+    .offset-l-#{$i} {
+        margin-left: columns($i);
+    }
+    .offset-r-#{$i} {
+        margin-right: columns($i);
+    }
+    $i: $i + 1;
+}
+
+section {
+    @extend %clearfix;
+}
+
+@function nbrCol($nbrCol) {
+    @if($nbrCol%2 == 0) {
+        $nbrCol: $nbrCol + 1;
+    }
+    @return $nbrCol;
+}
+
+// PADDING CLASSES
+.p-l {
+    padding-left: newgutter(1);
+}
+.p-r {
+    padding-right: newgutter(1);
+}
+
+// FIXED CONTAINER
+$i: 1;
+$j: 1;
+
+$containers: 24;
+
+@each $current-container in $containers {
+    $i: index($containers, $current-container);
+
+    .container-#{$current-container} {
+        max-width: 100%;
+        width: $max-width / $maximum-columns * $current-container;
+        margin: 0 auto;
+        @extend %clearfix;
+
+        @if ($current-container != 4 and $current-container != 7) {
+            @for $k from $j through $current-container {
+
+                > .col-#{$k} {
+                    width: calcPercentage($k / $current-container);
+                }
+
+                > .offset-l-#{$k} {
+                    margin-left: calcPercentage($k / $current-container);
+                }
+
+                > .offset-r-#{$k} {
+                    margin-right: calcPercentage($k / $current-container);
+                }
+            }
+        }
+
+        @if ($current-container == 7) {
+            > .col-#{$current-container} {
+                width: calcPercentage($current-container / $current-container);
+            }
+        }
+
+
+        @media all and (max-width: ($max-width / $maximum-columns * $current-container) + 100) {
+            padding: 0 calcPercentage(1 / $current-container);
+        }
+
+        @include MQ(mobile) {
+            padding: 0 20px;
+        }
+
+        &.p-no {
+            padding: 0;
+        }
+
+        &.p-big {
+
+            @if ($current-container == 12 and $current-container == 16 and $current-container == 20) {
+                @media all and (max-width: ($max-width / $maximum-columns * $current-container)+(1 / $current-container) ) {
+                    padding: 0 calcPercentage(1 / $current-container);
+                }
+            }
+
+            @if ($current-container == 18) {
+
+                padding: 0 calcPercentage(1 / $current-container);
+
+                @media all and (max-width: ($max-width / $maximum-columns * $current-container)) {
+                    padding: 0 calcPercentage(2 / $current-container);
+                }
+
+                @include MQ(desktop-) {
+                    padding: 0 calcPercentage(1 / $current-container);
+                }
+            }
+
+            @if ($current-container == 22) {
+
+                padding: 0 calcPercentage(1 / $current-container);
+
+                @media all and (max-width: ($max-width / $maximum-columns * $current-container)) {
+                    padding: 0 calcPercentage(2 / $current-container);
+                }
+
+                @include MQ(desktop-) {
+                    padding: 0 calcPercentage(1 / $current-container);
+                }
+            }
+        }
+    }
+}
+
+// NESTED COLUMNS
+$i: 1;
+$j: 1;
+
+@while $i < ($maximum-columns + 1) {
+    .col-#{$i} {
+
+        @for $k from $j through $i {
+
+            > .col-#{$k} {
+                width: calcPercentage($k / $i);
+            }
+
+            > .offset-l-#{$k} {
+                margin-left: calcPercentage($k / $i);
+            }
+
+            > .offset-r-#{$k} {
+                margin-right: calcPercentage($k / $i);
+            }
+
+            // padding 1/2 col1
+            @if $k < 2 {
+
+                > .p-l {
+                    padding-left: calcPercentage(($k / $i) / 2);
+                }
+                > .p-r {
+                    padding-right: calcPercentage(($k / $i) / 2);
+                }
+            }
+        }
+    }
+    $i: $i + 1;
+}
+
+.col-24 {
+    padding-left: newgutter(0);
+    padding-right: newgutter(0);
+}

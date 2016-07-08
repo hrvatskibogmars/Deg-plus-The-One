@@ -1,0 +1,48 @@
+.poster {
+    display: none;
+
+    &--desktop {
+        @include MQ(desktop) {
+            display: block;
+        }
+    }
+
+    &--tablet {
+        @include MQ(tablet) {
+            display: block;
+        }
+    }
+
+    &--mobile {
+        @include MQ(mobile) {
+            display: block;
+        }
+    }
+
+    a {
+        display: block;
+    }
+
+    figure {
+        padding-bottom: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+}
+
+.posters {
+    width: 100%;
+    @include clearfix();
+
+    &.three {
+
+        .poster {
+            float: left;
+            width: 33.33%;
+        }
+    }
+}

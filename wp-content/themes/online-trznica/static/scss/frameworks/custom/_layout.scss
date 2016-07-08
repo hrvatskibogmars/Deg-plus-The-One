@@ -1,0 +1,72 @@
+$max-width:        1920px;  // set page max-width
+$column-width:     8%;      // set column width
+$gutter-width:     4%;      // set gutter width
+$maximum-columns:  24;      // set max number of columns
+
+@function newgutter($columns, $container-columns: $maximum-columns) {
+    $width: $columns * $column-width;
+    $container-width: $container-columns * $column-width;
+    @return percentage($width / $container-width / 2);
+}
+
+@function gutter($container-columns: $maximum-columns, $gutter: $gutter-width) {
+    $container-width: $container-columns * $column-width + ($container-columns - 1) * $gutter-width;
+    @return percentage($gutter / $container-width);
+}
+
+@function columns($columns, $container-columns: $maximum-columns) {
+    $width: $columns * $column-width;
+    $container-width: $container-columns * $column-width;
+    @return percentage($width / $container-width);
+}
+
+@function columns12($columns, $container-columns: $maximum-columns) {
+    $width: $columns * $column-width;
+    $container-width: $container-columns * $column-width;
+    @return percentage($width / $container-width);
+}
+
+@function calcPercentage($a) {
+    @return percentage($a);
+}
+
+@mixin nesting {
+    padding: 0; // no padding so nested elements fit
+
+    & > div { // affect only immediate children
+        float: left;
+        @include border-box; // math is hard. let’s use border-box
+    }
+}
+
+@mixin row {
+    width: 100%; // make sure to fill its container
+    margin: 0 auto;
+    @include clearfix; // clear our floats
+    //@include nesting; // add nesting styles to rows
+}
+
+@function offset-columns($columns) {
+    $padding:
+    $columns * $column-width + $columns * $gutter-width;
+    @return $padding;
+}
+
+@mixin offset($columns, $from-direction: left) {
+    @if $from-direction == left {
+        float: left;
+        padding-left: offset-columns($columns);
+    }
+    @if $from-direction == right {
+        float: right;
+        padding-right: offset-columns($columns);
+    }
+}
+
+@mixin last {
+    margin-right: 0;
+    float: right;
+}
+
+$one-col-width: columns(1);
+

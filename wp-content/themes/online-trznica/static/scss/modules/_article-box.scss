@@ -1,0 +1,186 @@
+@include i-block('article-box', 'two', 2, 0);
+
+@include MQ(mobile-SM) {
+    @include i-block('article-box', 'two', 2, 1);
+}
+
+//.itemblock-article-box { }
+
+.article-box {
+    $root: &;
+    margin-bottom: 2%;
+
+    //&__list { }
+
+    &__figure {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            content: "";
+            will-change: background-color;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+            background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+        }
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background: transparent;
+            will-change: background-color;
+            transition: background-color 0.25s ease-in-out;
+        }
+    }
+
+    &__figcaption {
+        z-index: 1;
+
+        $font-size: 20px;
+        $line-height: 1.2;
+        $lines-to-show: 3;
+        $margin: 20;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-($font-size*$line-height*$lines-to-show+$margin));
+        transition: transform 0.25s ease-in-out;
+        padding: 0 25px 20px;
+        will-change: transform;
+
+        @include MQ(tablet) {
+            padding: 0 20px 20px;
+            $font-size-tablet: 18px;
+            transform: translateY(-($font-size-tablet*$line-height*$lines-to-show+$margin));
+        }
+
+        @include MQ(mobile) {
+            padding: 0 15px 20px;
+            $font-size-tablet: 16px;
+            transform: translateY(-($font-size-tablet*$line-height*$lines-to-show+$margin));
+        }
+
+        h3 {
+            height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+            font-size: $font-size;
+            line-height: $line-height;
+            -webkit-line-clamp: $lines-to-show;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @include MQ(tablet) {
+                $font-size-tablet: 18px;
+                height: $font-size-tablet*$line-height*$lines-to-show; /* Fallback for non-webkit */
+                font-size: $font-size-tablet;
+                line-height: $line-height;
+                -webkit-line-clamp: $lines-to-show;
+            }
+
+            @include MQ(mobile) {
+                $font-size-tablet: 16px;
+                height: $font-size-tablet*$line-height*$lines-to-show; /* Fallback for non-webkit */
+                font-size: $font-size-tablet;
+                line-height: $line-height;
+                -webkit-line-clamp: $lines-to-show;
+            }
+
+            color: $white-100;
+            margin: 0 0 20px;
+            display: block; /* Fallback for non-webkit */
+            display: -webkit-box;
+
+            span {
+                display: table;
+                height: 100%;
+
+                span {
+                    display: table-cell;
+                    vertical-align: bottom;
+                }
+            }
+
+        }
+
+        p {
+            $font-size-p: 15px;
+            $line-height-p: 1.33;
+            $lines-to-show-p: 3;
+            $margin-p: 20;
+
+            color: $white-100;
+            display: block; /* Fallback for non-webkit */
+            display: -webkit-box;
+
+            height: $font-size-p*$line-height-p*$lines-to-show-p; /* Fallback for non-webkit */
+            font-size: $font-size-p;
+            line-height: $line-height-p;
+            -webkit-line-clamp: $lines-to-show-p;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @include MQ(desktop-S) {
+                display: none;
+            }
+
+            @include MQ(desktop-) {
+                display: none;
+            }
+        }
+
+        .button {
+
+            &:hover {
+                border-color: $white-100;
+            }
+        }
+    }
+
+    &__figure {
+
+        @include MQ(desktop) {
+
+            &:hover {
+
+                &:after {
+                    background: $vine-red-overlay;
+                }
+
+                #{$root}__figcaption {
+                    transform: translateY(-100%);
+                }
+            }
+        }
+
+        @include MQ(desktop-) {
+
+            &:before {
+                height: 100%;
+            }
+
+            #{$root}__figcaption {
+                transform: translateY(-100%);
+            }
+        }
+    }
+}

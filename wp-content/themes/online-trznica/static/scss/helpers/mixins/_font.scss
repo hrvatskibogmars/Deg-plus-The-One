@@ -1,0 +1,89 @@
+//Sass Mixin for typekit variation-specific font-family names
+//Typekit IE6-8 Support (http://help.typekit.com/customer/portal/articles/6855-Using-multiple-weights-and-styles)
+
+//Based on https://gist.github.com/plapier/3988984
+
+$arial: Arial, serif, sans-serif;
+$georgia: Georgia, "Times New Roman", serif;
+
+// Must include fallbacks for EACH typekit font — set them each as variables
+//************************************************************************//
+$typekit-fonts:     "", "", "";  // index [1, 2, 3]
+$typekit-fallbacks:  $georgia, $georgia,  $arial;
+
+
+@mixin font($weight: 400, $style: normal, $font: 1) {
+    $font-weight: $weight;
+    $font-style:  $style;
+
+    // Translate Weight
+
+    @if ($weight == 400) or ($weight == normal) or ($weight == regular) {
+        $weight: 4;
+    }
+    @if ($weight == 700) or ($weight == bold) {
+        $weight: 7;
+    }
+
+    // Translate Style
+    @if $style == normal {
+        $style: n;
+    }
+    @else if $style == italic {
+        $style: i;
+    }
+
+    // Assemble $font-family
+    $primary-font:   nth($typekit-fonts, $font) + "-" + $style + $weight;
+    $secondary-font: nth($typekit-fonts, $font);
+    $fallback-fonts: nth($typekit-fallbacks, $font);
+    $font-family:    quote($primary-font), quote($secondary-font), $fallback-fonts;
+
+    font-family: $font-family;
+    font-style:  $font-style;
+    font-weight: $font-weight;
+}
+
+@mixin font-size($psd-font-size, $psd-line-height: $psd-font-size) {
+    font-size: $psd-font-size;
+    line-height: ($psd-line-height)/$psd-font-size;
+}
+
+@mixin font-line-height($psd-font-size, $psd-line-height: $psd-font-size) {
+    line-height: ($psd-line-height)/$psd-font-size;
+}
+
+@mixin font-size-map($fs-map) {
+    @each $fs-breakpoint, $fs-font-size in $fs-map {
+        @if $fs-breakpoint == null {
+            font-size: $fs-font-size;
+        } @else {
+            @include MQ($fs-breakpoint) {
+                font-size: $fs-font-size;
+            }
+        }
+    }
+}
+
+@mixin font-face($font-name, $font-filename: $font-name) {
+    @font-face {
+        font-family: '#{$font-name}';
+        @if $img-link-type == "HTML" {
+            src: url('#{$routeHTMLfont+$font-filename}.eot');
+            src: url('#{$routeHTMLfont+$font-filename}.eot?#iefix') format('embedded-opentype'),
+            url('#{$routeHTMLfont+$font-filename}.woff2') format('woff2'),
+            url('#{$routeHTMLfont+$font-filename}.woff') format('woff'),
+            url('#{$routeHTMLfont+$font-filename}.ttf') format('truetype'),
+            url('#{$routeHTMLfont+$font-filename}.svg##{$font-name}') format('svg');
+        } @else if $img-link-type == "PHP" {
+            src: url('#{$routePHPfont+$font-filename}.eot');
+            src: url('#{$routePHPfont+$font-filename}.eot?#iefix') format('embedded-opentype'),
+            url('#{$routePHPfont+$font-filename}.woff2') format('woff2'),
+            url('#{$routePHPfont+$font-filename}.woff') format('woff'),
+            url('#{$routePHPfont+$font-filename}.ttf') format('truetype'),
+            url('#{$routePHPfont+$font-filename}.svg##{$font-name}') format('svg');
+        }
+        font-weight: normal;
+        font-style: normal;
+    }
+}

@@ -1,0 +1,33 @@
+.blank {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    &--item {
+        @include full();
+        @include suffix(6 of 17);
+
+        @include MQ(desktop-) {
+            @include suffix(0);
+        }
+    }
+
+    &--search {
+        @include full();
+        padding: 0;
+    }
+
+    h2 {
+
+    }
+
+    p {
+        @include font-size-map($font-size-15);
+        @include pad(1 of 11);
+        color: $grey;
+    }
+
+    .is-link {
+
+    }
+}

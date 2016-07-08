@@ -1,0 +1,29 @@
+{
+  "name": "degordian",
+  "version": "0.1.0",
+  "authors": [
+    "Zoran Zavrski <zoran.zavrski@degordian.com>, Karlo Videk <karlo.videk@degordian.com>, Igor Bumba <igor.bumba@degordian.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.4",
+    "gsap": "^1.18.2"
+  },
+  "dependencies": {
+    "susy": "~2.2.6",
+    "nouislider": "~8.5.1",
+    "lightgallery": "~1.2.19",
+    "remodal": "~1.0.7",
+    "lazysizes": "~2.0.0"
+  }
+}

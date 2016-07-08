@@ -1,0 +1,234 @@
+.sidebar {
+
+    // sidebar on the restaurants page
+    //&--list { }
+
+    &.has-left-border {
+        border-left: 1px solid $border;
+    }
+
+    .link-wrapper {
+        padding: 20px;
+    }
+}
+
+// filter on the restaurants page
+.filter {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    padding-left: span(1 of 6);
+    padding-right: span(1 of 6);
+    background: $light-grey-B;
+
+    @include MQ(mobile-SM) {
+        padding: span(1 of 24);
+    }
+
+    &__link {
+        color: $vine-red;
+        @include font-size-map($font-size-10);
+        font-weight: 400;
+        line-height: 2.4em;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    form {
+
+        h3 {
+            line-height: 1.2em;
+            margin-top: 1.25em;
+            margin-bottom: 0.75em;
+
+            @include MQ(mobile-SM) {
+                margin-top: 1em;
+            }
+
+            span {
+                font-family: $roboto-regular;
+                display: block;
+                @include opacity(0.5);
+                color: $dark-grey-50;
+                @include font-size-map($font-size-12);
+
+                strong {
+                    color: $dark-grey;
+                }
+            }
+        }
+
+        .checkbox-field > label {
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: $dark-grey;
+        }
+
+        .select-field {
+            @include clearfix();
+            margin-bottom: 20px;
+        }
+    }
+}
+
+// search menu
+.page-menu {
+    padding-bottom: 20px;
+    @include clearfix();
+
+    li {
+        background: $light-grey-B;
+
+        @include MQ(mobile) {
+            width: 25%;
+            float: left;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            padding: 20px 40px;
+            will-change: background;
+            transition: background 0.25s ease-in-out;
+
+            @include MQ(tablet) {
+                padding: 15px 30px;
+            }
+
+            @include MQ(mobile) {
+                padding: 10px 20px;
+            }
+
+            svg {
+                display: inline-block;
+                vertical-align: middle;
+                height: 20px;
+                width: 20px;
+                margin-right: 10px;
+
+                @include MQ(mobile) {
+                    margin-right: 0;
+                }
+
+                use {
+                    fill: $dark-grey;
+                    will-change: fill;
+                    transition: fill 0.25s ease-in-out;
+                }
+            }
+
+            span {
+                color: $dark-grey;
+                @include font-size-map($font-size-17);
+                font-weight: 400;
+                line-height: 1.4em;
+                will-change: color;
+                transition: color 0.25s ease-in-out;
+
+                @include MQ(mobile) {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                background-color: $vine-red;
+
+                span {
+                    color: $white-100;
+                }
+                svg {
+                    use {
+                        fill: $white-100;
+                    }
+                }
+            }
+
+            &.is-active {
+                background-color: $light-grey-D;
+
+                span {
+                    color: $dark-grey;
+                }
+                svg {
+                    use {
+                        fill: $dark-grey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contactus {
+    $contactus: &;
+    padding: 7px;
+    background: $vine-red;
+    color: $white-100;
+
+    &__inner {
+        border: 1px solid #df5b8c;
+        padding: 40px 10px 45px;
+        text-align: center;
+
+        p {
+            margin: 0;
+            padding-bottom: 35px;
+            color: $white-100;
+            @include font-size-map($font-size-20);
+            line-height: 1.35em;
+        }
+    }
+
+    &__logo {
+        display: block;
+        text-transform: uppercase;
+        font-family: $playfair-regular;
+        font-size: 40px;
+        letter-spacing: -0.04em;
+
+        @include MQ(desktop-S) {
+            font-size: 32px;
+        }
+
+        @include MQ(tablet-L) {
+            font-size: 30px;
+        }
+
+        @include MQ(mobile-SM) {
+            font-size: 30px;
+        }
+    }
+
+    &__logo-subtitle {
+        display: block;
+        font-family: $roboto-regular;
+        text-transform: none;
+        @include font-size-map($font-size-13);
+        letter-spacing: 0.02em;
+        font-style: normal;
+        padding-bottom: 30px;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .button {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    &.is-white {
+        background: $white-100;
+        color: $dark-grey;
+
+        #{$contactus}__inner {
+            border: none;
+        }
+    }
+}
+
+.stick {
+    position:fixed;
+    top:0px;
+}

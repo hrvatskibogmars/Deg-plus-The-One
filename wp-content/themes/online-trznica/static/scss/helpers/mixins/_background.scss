@@ -1,0 +1,38 @@
+@mixin background($background-image, $background-position: 'top left', $background-repeat: 'no-repeat') {
+    @if $img-link-type == "HTML" {
+        background-image: url('#{$routeHTML}#{$background-image}');
+    } @else if $img-link-type == "PHP" {
+        background-image: url('#{$routePHP}#{$background-image}');
+    }
+    background-repeat: #{$background-repeat};
+    background-position: #{$background-position};
+}
+
+@mixin background-retina-icon($background-image, $background-width, $background-height, $background-position: 'top left', $background-repeat: 'no-repeat') {
+    display: inline-block;
+    width: $background-width/2;
+    height: $background-height/2;
+    @if $img-link-type == "HTML" {
+        background-image: url('#{$routeHTML}#{$background-image}');
+    } @else if $img-link-type == "PHP" {
+        background-image: url('#{$routePHP}#{$background-image}');
+    }
+    background-size: 100%;
+    background-repeat: #{$background-repeat};
+    background-position: #{$background-position};
+}
+
+@mixin background-image($background-image) {
+    @if $img-link-type == "HTML" {
+        background-image: url('#{$routeHTML}#{$background-image}');
+    } @else if $img-link-type == "PHP" {
+        background-image: url('#{$routePHP}#{$background-image}');
+    }
+}
+
+@mixin background-cover {
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+}

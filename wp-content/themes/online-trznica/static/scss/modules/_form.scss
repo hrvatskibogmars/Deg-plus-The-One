@@ -1,0 +1,434 @@
+//#######################################
+//## VARIABLES ##########################
+//#######################################
+
+//FORM
+
+//LABEL
+$label-font: $roboto-regular;
+$label-font-size: 13px;
+$label-line-height: 1.2em;
+$label-margin-bottom: 10px;
+$label-color: $label-grey;
+
+//INPUT
+//font
+$input-font: $roboto-regular;
+$input-placeholder-font: $roboto-regular;
+
+$input-font-size: 16px;
+$input-placeholder-font-size: 14px;
+
+$input-font-style: normal;
+$input-placeholder-font-style: italic;
+
+$input-line-height: 20px;
+$input-placeholder-line-height: $input-line-height - 3;
+
+//color, backgroound color, borders
+$input-color: $dark-grey;
+$input-placeholder-color: $grey;
+
+$input-background-color: $transparent;
+$input-border-color: $grey;
+
+$input-border-color-hover: darken($grey, 15%);
+$input-border-color-active: $dark-grey;
+
+
+$checkbox-border-color: $grey;
+$checkbox-color: $dark-grey;
+
+//padding
+$input-padding-top: 10px;
+$input-padding-right: 20px;
+$input-padding-bottom: 10px;
+$input-padding-left: 20px;
+
+$input-padding: $input-padding-top $input-padding-right $input-padding-bottom $input-padding-left;
+
+//column-padding
+$form-column-padding-right: 40px;
+
+//ERROR MESSAGE
+$error-message-color: $error-red;
+
+$error-message-font: $roboto-regular;
+$error-message-font-size: 12px;
+$error-message-line-height: 1.2em;
+$error-message-margin-top: 10px;
+
+//SELECT
+$select-disabled-color: $grey;
+
+
+
+//#######################################
+//## PLACEHOLDER ########################
+//#######################################
+
+@mixin placeholder {
+    font-family: $input-placeholder-font;
+    font-size: $input-placeholder-font-size;
+    font-style: $input-placeholder-font-style;
+    font-weight: normal;
+    color: $input-placeholder-color;
+    letter-spacing: normal;
+    line-height: $input-placeholder-line-height;
+    text-align: inherit;
+    text-decoration: inherit;
+};
+
+::-webkit-input-placeholder {
+    @include placeholder();
+}
+
+::-moz-placeholder {
+    @include placeholder();
+}
+
+:-ms-input-placeholder {
+    @include placeholder();
+}
+
+::placeholder {
+    @include placeholder();
+}
+
+//#######################################
+//## FORM STYLE #########################
+//#######################################
+
+form {
+    display: block;
+    width: 100%;
+    font-size: 0;
+}
+
+//wrappers inside <form> to separate form elements in columns
+.form-column {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: $form-column-padding-right;
+
+    &.full {
+        width: 100%;
+    }
+
+    &.one-half {
+        width: 50%;
+    }
+
+    &.one-third {
+        width: 33.33%;
+    }
+}
+
+
+//#######################################
+//## FIELDSET STYLE #####################
+//#######################################
+
+.fieldset {
+    padding: 0 0 20px 0;
+    position: relative;
+    @extend %clearfix;
+
+    &.required {
+
+    }
+
+    &.has-error {
+        .error-message {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+
+//#######################################
+//## LABEL STYLE ########################
+//#######################################
+
+label {
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: $label-margin-bottom;
+    font-size: $label-font-size;
+    font-family: $label-font;
+    color: $label-color;
+    text-transform: uppercase;
+}
+
+
+//#######################################
+//## INPUT STYLE ########################
+//#######################################
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="file"],
+input[type="search"],
+textarea {
+    display: block;
+    float: left;
+    font-size: $label-font-size;
+    font-family: $label-font;
+    color: $input-color;
+    background-color: $input-background-color;
+    border: 1px solid $input-border-color;
+    padding: $input-padding;
+    -webkit-appearance: none;
+
+    &:hover {
+        border: 1px solid $input-border-color-hover;
+    }
+
+    &:focus {
+        border: 1px solid $input-border-color-active;
+    }
+
+    .has-error & {
+        border: 1px solid $error-red;
+    }
+
+    &.wpcf7-not-valid {
+        border: 1px solid $error-red;
+    }
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+//INPUT CHECKBOX SPECIFIC
+.checkbox-field {
+
+    input[type="checkbox"]:checked + span:after {
+        width: 18px;
+        left: 0;
+    }
+
+    span {
+        display: block;
+        padding-left: 35px;
+        position: relative;
+
+        @include MQ(mobile) {
+            padding-left: 30px;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid $checkbox-border-color;
+        }
+
+        &:after {
+            content: "";
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTggMTgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE4IDE4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6IzAxMDEwMTt9PC9zdHlsZT48cG9seWdvbiBpZD0iWE1MSURfMV8iIGNsYXNzPSJzdDAiIHBvaW50cz0iMTUuMSw2LjQgMTMuOCw1LjIgNy44LDExLjQgNS4yLDguOSA0LDEwLjEgNy44LDEzLjggIi8+PC9zdmc+);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center center;
+            position: absolute;
+            top: 0;
+            left: 9px;
+            width: 0;
+            height: 18px;
+            @include transition($hover);
+        }
+    }
+
+    >label {
+        padding-left: 0;
+        width: 100%;
+
+        &:before {
+            display: none;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+//INPUT RADIO BUTTONS SPECIFIC
+.radio-field {
+
+    input[type="radio"]:checked + span:after {
+        @include transform(scale(1));
+        opacity: 1;
+    }
+
+    span {
+        display: block;
+        padding-left: 35px;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid $checkbox-border-color;
+            @include border-radius(100%);
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 10px;
+            height: 10px;
+            background-color: $input-color;
+            @include border-radius(100%);
+            @include transition($hover);
+            @include transform(scale(0.3));
+            opacity: 0;
+        }
+    }
+
+    >label {
+        padding-left: 0;
+        width: 100%;
+
+        &:before {
+            display: none;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+//FILE SPECIFIC
+input[type="file"] {
+    display: block;
+    position: relative;
+    padding: $input-padding;
+    margin: auto;
+    cursor: pointer;
+    line-height: $input-line-height;
+    border: 1px solid $input-border-color;
+
+    &:after {
+        @include transition($hover);
+        background: lighten($input-border-color, 10%);
+        color: $input-color;
+        font-size: $input-font-size;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        padding: $input-padding;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        content: attr(data-label);
+        line-height: $input-line-height;
+    }
+}
+
+//TEXTAREA SPECIFIC
+textarea {
+    resize: vertical;  //change to "none" if resize should be disabled
+}
+
+
+//#######################################
+//## SELECT STYLE #######################
+//#######################################
+
+.select-field {
+
+}
+
+select {
+    display: block;
+    position: relative;
+    width: 100%;
+    float: left;
+    font-size: $label-font-size;
+    font-family: $label-font;
+    color: $input-color;
+    background-color: $input-background-color;
+    border: 1px solid $input-border-color;
+    padding: $input-padding;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @include border-radius(0);
+
+    &:invalid {
+        color: $select-disabled-color;
+        font-size: $input-placeholder-font-size;
+        font-style: $input-placeholder-font-style;
+    }
+}
+
+option {
+    display: inline-block;
+    padding-right: 18px;
+    position: relative;
+
+    &:before {
+        //bullets if needed
+    }
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+
+//#######################################
+//## ERROR MESSAGE STYLE ################
+//#######################################
+
+.error-message {
+    display: none;
+    float: left;
+    color: $error-message-color;
+    font-family: $error-message-font;
+    font-size: $error-message-font-size;
+    line-height: $error-message-line-height;
+    margin-top: $error-message-margin-top;
+}
+
+.wpcf7-not-valid-tip {
+    display: block;
+    float: left;
+    color: $error-message-color;
+    font-family: $error-message-font;
+    font-size: $error-message-font-size;
+    line-height: $error-message-line-height;
+    margin-top: $error-message-margin-top;
+}
+
+.wpcf7-validation-errors {
+    border: none;
+}

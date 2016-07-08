@@ -1,0 +1,197 @@
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+// the flexible version:
+@include global-box-sizing(border-box);
+
+html {
+    background-color: $white-100;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $roboto-regular;
+    -webkit-text-size-adjust: 100%;
+    font-size: 1.5rem;
+    color: $grey;
+
+    &.is-fixed {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+// CONTAINER
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @include clearfix();
+}
+
+// WRAPPER
+.wrapper {
+    padding: 0 span(1 of 24);
+}
+
+// MAIN
+.main-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include MQ(tablet) {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    @include MQ(mobile) {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    // etc. home, single...
+    &--left {
+
+        .main {
+            @include span(18 of 24);
+            @include suffix(1 of 18);
+
+            @include MQ(tablet-SM) {
+                @include full();
+                padding: 0;
+            }
+
+            @include MQ(mobile) {
+                @include full();
+                padding: 0;
+                padding-bottom: 25px;
+            }
+        }
+        .sidebar {
+            @include span(6 of 24);
+
+            @include MQ(tablet-SM) {
+                @include full();
+            }
+
+            @include MQ(mobile) {
+                @include full();
+            }
+        }
+    }
+
+    // etc. listings
+    &--right {
+
+        .main {
+            @include span(18 of 24);
+            @include prefix(1 of 18);
+        }
+        .sidebar {
+            @include span(6 of 24);
+        }
+    }
+
+    //&.is-home {  }
+
+    &.is-list {
+
+        .main {
+
+            @include MQ(tablet-L) {
+                @include span(16 of 24);
+            }
+
+            @include MQ(tablet-M) {
+                @include span(15 of 24);
+            }
+
+            @include MQ(tablet-S) {
+                @include span(14 of 24);
+            }
+
+            @include MQ(mobile) {
+                padding: 0;
+                @include full();
+            }
+        }
+        .sidebar {
+
+            @include MQ(tablet-L) {
+                @include span(8 of 24);
+            }
+
+            @include MQ(tablet-M) {
+                @include span(9 of 24);
+            }
+
+            @include MQ(tablet-S) {
+                @include span(10 of 24);
+            }
+
+            @include MQ(mobile) {
+                @include full();
+            }
+        }
+    }
+
+    &.is-detail {
+
+        .main {
+
+            @include MQ(tablet) {
+                @include full();
+                padding: 0;
+            }
+
+            @include MQ(mobile) {
+                @include full();
+                padding: 0;
+            }
+        }
+
+        .sidebar {
+
+        }
+    }
+
+    &.is-detail-wine {
+
+        .main {
+            @include full();
+
+            @include MQ(tablet) {
+                @include full();
+                padding: 0;
+            }
+
+            @include MQ(mobile) {
+                @include full();
+                padding: 0;
+            }
+        }
+    }
+}
+
+.main {
+    position: relative;
+    @include clearfix();
+}
+
+//.sidebar {}
+
+// MAIN ELEMENTS
+//.header, .main, .footer { }
+
+// WP STUFF OVERRIDE
+
+// HELPERS
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.has-padding-top {
+    padding-top: 20px;
+}

@@ -1,0 +1,23 @@
+@mixin breakpoint($class: custom, $maxmin: max-width, $size: 0) {
+    @if $class == xs {
+        @media ($maxmin: $responsive-screen-xs) {
+            @content;
+        }
+    } @else if $class == sm {
+        @media ($maxmin: $responsive-screen-sm) {
+            @content;
+        }
+    } @else if $class == md {
+        @media ($maxmin: $responsive-screen-md) {
+            @content;
+        }
+    } @else if $class == lg {
+        @media ($maxmin: $responsive-screen-lg) {
+            @content;
+        }
+    } @else {
+        @media ($maxmin: $class) {
+            @content;
+        }
+    }
+}

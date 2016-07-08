@@ -1,0 +1,130 @@
+@include i-block('region', 'three', 2, 0);
+
+@include MQ(desktop-S) {
+    @include i-block('region', 'three', 2, 1);
+}
+
+@include MQ(tablet) {
+    @include i-block('region', 'three', 2, 1);
+}
+
+@include MQ(mobile-L) {
+    @include i-block('region', 'three', 2, 1);
+}
+
+@include MQ(mobile-SM) {
+    @include i-block('region', 'three', 2, 2);
+}
+
+.itemblock-region {
+}
+
+.region {
+    $root: &;
+    margin-bottom: 2%;
+
+    &__figure {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__figcaption {
+        z-index: 1;
+
+        $font-size: 20px;
+        $line-height: 1.2;
+        $lines-to-show: 1;
+        $padding: 15;
+
+        position: absolute;
+        display: block;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-($font-size*$line-height*$lines-to-show+$padding+$padding));
+        transition: all 0.25s ease-in-out;
+        padding: 0;
+        will-change: transform;
+        background: $vine-red;
+        text-align: center;
+
+        h3 {
+            height: $font-size*$line-height*$lines-to-show+$padding+$padding; /* Fallback for non-webkit */
+            font-size: $font-size;
+            line-height: $line-height;
+            -webkit-line-clamp: $lines-to-show;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            color: $white-100;
+            @include font-size-map($font-size-20);
+            display: block; /* Fallback for non-webkit */
+            display: -webkit-box;
+
+            margin: 0;
+            padding: 15px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        p {
+            $font-size-p: 15px;
+            $line-height-p: 1.33;
+            $lines-to-show-p: 2;
+
+            color: $white-100;
+            display: block; /* Fallback for non-webkit */
+            display: -webkit-box;
+
+            height: $font-size-p*$line-height-p*$lines-to-show-p; /* Fallback for non-webkit */
+            font-size: $font-size-p;
+            line-height: $line-height-p;
+            -webkit-line-clamp: $lines-to-show-p;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 15px;
+
+            @include MQ(desktop-) {
+                display: none;
+            }
+        }
+
+        .button {
+            margin-bottom: 15px;
+
+            &:hover {
+                border-color: $white-100;
+            }
+        }
+    }
+
+    &__figure {
+
+        @include MQ(desktop) {
+
+            &:hover {
+
+                #{$root}__figcaption {
+                    background: $vine-red-overlay;
+                    transform: translateY(-100%);
+                }
+            }
+        }
+
+        @include MQ(desktop-) {
+            #{$root}__figcaption {
+                background: $vine-red-overlay;
+                transform: translateY(-100%);
+            }
+        }
+    }
+}

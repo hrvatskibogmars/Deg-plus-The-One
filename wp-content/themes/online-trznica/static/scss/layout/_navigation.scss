@@ -1,0 +1,660 @@
+// NAVIGATION
+.navigation-wrapper {
+    position: relative;
+    background-color: $vine-red;
+    color: $white-100;
+    overflow: hidden;
+    z-index: 11;
+
+    @include MQ(desktop) {
+
+        // home version
+        &.is-home {
+            text-align: center;
+        }
+    }
+}
+
+.navigation {
+    position: relative;
+    padding: 32px 0 36px 0;
+
+    @include MQ(desktop) {
+
+        // home version
+        .is-home & {
+            padding-top: 0;
+        }
+    }
+
+    @include MQ(mobile) {
+        padding: 16px 0 18px 0;
+    }
+
+    /* Landscape */
+    @media only screen
+    and (min-device-width: 0px)
+    and (max-device-width: 773px)
+    and (orientation: landscape) {
+        padding: 16px 0 18px 0;
+    }
+}
+
+.logo {
+    $root: &;
+
+    &__el {
+        display: block;
+        text-transform: uppercase;
+        font-family: $playfair-regular;
+        font-size: 42px;
+        letter-spacing: -0.04em;
+
+        a {
+            display: inline-block;
+            color: $white-100;
+
+            .is-home & {
+                color: $vine-red;
+            }
+        }
+
+        @include MQ(mobile) {
+            font-size: 32px;
+        }
+    }
+
+    &__subtitle {
+        display: block;
+        font-family: $roboto-regular;
+        text-transform: none;
+        @include font-size-map($font-size-13);
+        letter-spacing: 0.02em;
+        font-style: normal;
+
+        a {
+            text-decoration: underline;
+        }
+
+        /* Landscape */
+        @media only screen
+        and (min-device-width: 0px)
+        and (max-device-width: 773px)
+        and (orientation: landscape) {
+            display: none;
+        }
+
+        @include MQ(mobile) {
+            display: none;
+        }
+    }
+
+    &__wrapper {
+        @include span(12 of 24);
+        min-width: 258px;
+
+        @include MQ(tablet-L) {
+            @include span(8 of 24);
+        }
+
+        .footer & {
+            @include MQ(desktop-S) {
+                @include full();
+            }
+            @include MQ(desktop-) {
+                @include full();
+            }
+            @include MQ(767px) {
+                text-align: center;
+            }
+        }
+
+        // home version
+        .is-home & {
+
+            #{$root}__subtitle {
+
+                a {
+                    color: $white-100;
+                }
+            }
+        }
+
+        @include MQ(tablet) {
+
+            // home version
+            .is-home & {
+
+                #{$root}__el {
+                    width: 255px;
+                }
+            }
+        }
+
+        @include MQ(mobile) {
+
+            // home version
+            .is-home & {
+
+                #{$root}__el {
+                    width: 195px;
+                }
+            }
+        }
+
+        @include MQ(desktop) {
+            @include span(6 of 24);
+
+            // home version
+            .is-home & {
+                background: white;
+                @include full();
+                text-align: center;
+                padding: 80px 0;
+
+                #{$root}__el {
+                    color: $dark-grey;
+                }
+
+                #{$root}__subtitle {
+                    margin-top: 1em;
+                    color: $grey;
+                    @include font-size-map($font-size-19);
+
+                    a {
+                        color: $vine-red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-navigation {
+    float: left;
+    //@include span(18 of 24);
+    max-width: calc(100% - 258px);
+    text-align: left;
+    padding-left: span(1 of 18);
+    padding-top: 15px;
+    display: none;
+
+    &--footer {
+        display: block;
+        @include span(12 of 24);
+        max-width: 100%;
+
+        @include MQ(desktop-S) {
+            @include span(14 of 24);
+            padding-left: 0;
+
+            > ul {
+
+                > li {
+                    &:first-child {
+
+                        a {
+                            padding-left: 0;
+
+                            &:hover {
+                                &:before {
+                                    left: -32px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include MQ(tablet) {
+            @include span(14 of 24);
+            padding-left: 0;
+
+            > ul {
+
+                > li {
+                    &:first-child {
+
+                        a {
+                            padding-left: 0;
+
+                            &:hover {
+                                &:before {
+                                    left: -32px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include MQ(767px) {
+            @include full();
+            text-align: center;
+        }
+    }
+
+    @include MQ(desktop) {
+        display: block;
+
+        // home version
+        .is-home & {
+            float: none;
+            display: inline-block;
+            padding-top: 36px;
+            text-align: center;
+        }
+    }
+
+    @include MQ(tablet-L) {
+        display: block;
+        @include span(16 of 24);
+        padding-left: 0;
+        text-align: right;
+
+        // home version
+        .is-home & {
+            padding-top: 21px;
+            float: left;
+            width: auto;
+            //@include full();
+            text-align: center;
+        }
+    }
+
+    ul {
+        position: relative;
+        display: inline-block;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .search-wrapper {
+        width: 62px;
+        height: 42px;
+
+        form {
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: auto;
+
+            fieldset {
+                display: block;
+                @include clearfix();
+                margin: 0;
+            }
+
+            input {
+                backface-visibility: hidden;
+                top: 0;
+                position: absolute;
+                right: 0;
+                background: $white-0;
+                padding: 12px 20px;
+                border-color: $white-0;
+                border-radius: 42px;
+                padding-left: 42px;
+                padding-right: 0;
+                width: 0;
+                float: right;
+                transition: all 0.25s ease-in-out;
+                background-image: url('../ui/svg/search.svg');
+                background-size: 22px 22px;
+                background-position: 10px center;
+                background-repeat: no-repeat;
+                will-change: padding-right, background, width, color;
+                cursor: pointer;
+
+                &:focus {
+                    background-image: url('../ui/svg/search-grey.svg');
+                    width: 100%;
+                    border-color: $white-100;
+                    background-color: $white-100;
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+
+    .social-wrapper {
+
+        li {
+
+            a {
+                position: relative;
+                width: 42px;
+                height: 42px;
+                line-height: 24px;
+                text-align: center;
+                padding: 8px;
+
+                svg {
+                    position: relative;
+                    z-index: 2;
+
+                    use {
+                        will-change: fill;
+                        fill: $white-100;
+                        transition: fill 0.25s ease-in-out;
+                    }
+                }
+
+                &:before {
+                    content: "";
+                    display: block;
+                    transition: $slide;
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 100%;
+                    background-color: $white-100;
+                    z-index: 1;
+                    transform: scale(0.8);
+                    opacity: 0;
+                    margin: 0;
+                    will-change: opacity, transform;
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    transition: $slide;
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 100%;
+                    border: 1px solid $white-100;
+                    z-index: 1;
+                    transform: scale(1.2);
+                    opacity: 0;
+                    will-change: opacity, transform;
+                }
+
+                &:hover {
+                    color: $white-100;
+
+                    &:before {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+
+                    &:after {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+
+                    svg {
+
+                        use {
+                            fill: $vine-red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    a {
+        color: $white-100;
+        display: block;
+        font-family: $playfair-regular;
+        text-decoration: none;
+        font-size: 17px;
+        padding: 10px 22px;
+        position: relative;
+
+        @include MQ(tablet-L) {
+            padding: 10px 17px;
+        }
+
+        &:before {
+            backface-visibility: hidden;
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: 2px;
+            left: 60px;
+            width: 120px;
+            height: 1px;
+            background-color: $white-100;
+            transition: $slide-slow;
+            opacity: 0;
+            will-change: width, opacity, right;
+        }
+
+        &:hover {
+            &:before {
+                width: 20px;
+                left: -10px;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.lang {
+    float: right;
+    padding-top: 15px;
+    height: auto !important;
+
+    // home version
+    .is-home & {
+        padding-top: 36px;
+    }
+
+    @include MQ(tablet-L) {
+
+        // home version
+        .is-home & {
+            padding-top: 21px;
+        }
+    }
+
+    @include MQ(tablet-SM) {
+        display: none;
+    }
+
+    @include MQ(mobile) {
+        display: none;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            width: 1px;
+            height: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            content: "";
+            background: $white-100;
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+
+        a {
+            display: block;
+            color: $black-100;
+            will-change: color;
+            transition: color 0.25s ease-in-out;
+            font-size: 15px;
+            padding: 12px 10px;
+
+            &:hover {
+                color: $white-100;
+            }
+        }
+
+        &.is-active {
+
+            a {
+                color: $white-100;
+            }
+        }
+    }
+
+    &.is-mobile {
+        padding: 0;
+        height: 100% !important;
+
+        @include MQ(tablet-SM) {
+            display: table;
+            width: 100%;
+        }
+
+        @include MQ(mobile) {
+            display: table;
+            width: 100%;
+        }
+
+        li {
+            text-align: center;
+            vertical-align: middle;
+
+            a {
+                display: block;
+            }
+
+            @include MQ(tablet-SM) {
+                display: table-cell;
+                width: 48%;
+            }
+
+            @include MQ(mobile) {
+                display: table-cell;
+                width: 48%;
+            }
+        }
+    }
+}
+
+// hamburger icon
+// -----------------------------------------------------------------------------
+//
+//  HAMBURGER ICONS COMPONENT
+//
+// -----------------------------------------------------------------------------
+
+// vars
+
+$button-width: 30px;                    // The width of the button area
+$button-height: 30px;                   // The height of the button area
+$bar-thickness: 2px;                    // The thickness of the button bars
+$button-pad: 0px;                      // The left/right padding between button area and bars.
+$button-bar-space: 6px;                // The spacing between button bars
+$button-transistion-duration: 0.3s;     // The transition duration
+
+/**
+ * Toggle Switch Globals
+ *
+ * All switches should take on the class `c-hamburger` as well as their
+ * variant that will give them unique properties. This class is an overview
+ * class that acts as a reset for all versions of the icon.
+ */
+
+.c-hamburger {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    overflow: hidden;
+    margin: 0;
+    margin-top: -$button-height/2;
+    padding: 0;
+    width: $button-width;
+    height: $button-height;
+    font-size: 0;
+    text-indent: -9999px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background $button-transistion-duration;
+    display: none;
+
+    @include MQ(mobile) {
+        display: block;
+    }
+
+    @include MQ(tablet-SM) {
+        display: block;
+    }
+}
+
+.c-hamburger:focus {
+    outline: none;
+}
+
+.c-hamburger span {
+    display: block;
+    position: absolute;
+    top: ($button-height / 2) - ($bar-thickness / 2);
+    left: $button-pad;
+    right: $button-pad;
+    height: $bar-thickness;
+    background: rgb(255,255,255);
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: $bar-thickness;
+    background-color: #fff;
+    content: "";
+}
+
+.c-hamburger span::before {
+    top: -$bar-thickness - $button-bar-space;
+}
+
+.c-hamburger span::after {
+    bottom: -$bar-thickness - $button-bar-space;
+}
+
+/**
+ * Style 1
+ *
+ * Rotating hamburger icon (rot), that simply rotates 90 degrees when activated.
+ * Nothing too fancy, simple transition.
+ */
+
+.c-hamburger--rot {
+    background-color: rgba(255,255,255,0);
+}
+
+.c-hamburger--rot span {
+    transition: transform $button-transistion-duration;
+}
+
+/* active state, i.e. menu open */
+
+.c-hamburger--rot.is-active {
+    background-color: darken(rgba(255,255,255,0), 20%);
+}
+
+.c-hamburger--rot.is-active span {
+    transform: rotate(90deg);
+}

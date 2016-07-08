@@ -1,0 +1,30 @@
+@mixin apperance($apperance: none) {
+    -webkit-appearance: $apperance;
+    -moz-appearance: $apperance;
+    appearance: $apperance;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+    &:-moz-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &:-ms-input-placeholder {
+        @content
+    }
+    &.placeholder {
+        @content
+    }
+}
+
+@mixin select-firefox-remove-outline {
+    &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+    }
+}

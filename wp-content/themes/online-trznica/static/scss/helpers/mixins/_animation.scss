@@ -1,0 +1,54 @@
+$animation-type-array: linear, ease, ease-in, ease-out, ease-in-out;
+
+@function get-animation-type($some-number) {
+    $animation-type: nth($animation-type-array, $some-number);
+    @return $animation-type;
+}
+
+@mixin animation($css: all, $seconds: 0.2, $animation-type: 5, $animation-delay: 0) {
+    transition: $css $seconds+s get-animation-type($animation-type) $animation-delay+s;
+    -o-transition: $css $seconds+s get-animation-type($animation-type) $animation-delay+s;
+    -moz-transition: $css $seconds+s get-animation-type($animation-type) $animation-delay+s;
+    -webkit-transition: $css $seconds+s get-animation-type($animation-type) $animation-delay+s;
+}
+
+@mixin animation-extended($animation: all, $duration: 0.2, $delay: 0, $animation-type: 1, $iteration-count: infinite) {
+    -webkit-animation-iteration-count: $iteration-count;
+    -webkit-animation-duration: $duration+s;
+    -webkit-animation-delay: $delay+s;
+    -webkit-animation-name: $animation;
+    -webkit-animation-timing-function: get-animation-type($animation-type);
+    -moz-animation-iteration-count: $iteration-count;
+    -moz-animation-duration: $duration+s;
+    -moz-animation-delay: $delay+s;
+    -moz-animation-name: $animation;
+    -moz-animation-timing-function: get-animation-type($animation-type);
+    -o-animation-iteration-count: $iteration-count;
+    -o-animation-duration: $duration+s;
+    -o-animation-delay: $delay+s;
+    -o-animation-name: $animation;
+    -o-animation-timing-function: get-animation-type($animation-type);
+    animation-iteration-count: $iteration-count;
+    animation-duration: $duration+s;
+    animation-delay: $delay+s;
+    animation-name: $animation;
+    animation-timing-function: get-animation-type($animation-type);
+}
+
+@mixin keyframes($animationname) {
+    @-webkit-keyframes #{$animationname} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationname} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationname} {
+        @content;
+    }
+
+    @keyframes #{$animationname} {
+        @content;
+    }
+}

@@ -1,0 +1,55 @@
+.tags {
+
+    li {
+        position: relative;
+        display: inline-block;
+        background: $light-grey-B;
+        border-radius: 27px;
+        padding: 2px 40px 2px 20px;
+        color: $middle-grey;
+        @include font-size-map($font-size-p);
+        line-height: 23px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    &__delete {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        width: 27px;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+
+        svg {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+
+            use {
+                fill: $grey;
+                will-change: transform;
+                transition: fill 0.25s ease-in-out;
+            }
+        }
+
+        &:hover {
+
+            svg {
+                use {
+                    fill: $vine-red;
+                }
+            }
+        }
+    }
+}

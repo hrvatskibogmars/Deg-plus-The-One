@@ -1,0 +1,165 @@
+.noUi-target, .noUi-target * {
+}
+
+.noUi-target {
+}
+
+.noUi-base {
+}
+
+.noUi-origin {
+}
+
+.noUi-handle {
+    cursor: pointer;
+}
+
+.noUi-stacking .noUi-handle {
+}
+
+.noUi-state-tap .noUi-origin {
+}
+
+.noUi-state-drag * {
+}
+
+.noUi-base, .noUi-handle {
+}
+
+.noUi-horizontal {
+    height: 1px;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 12px;
+    height: 12px;
+    left: -6px;
+    top: -6px
+}
+
+.noUi-vertical {
+}
+
+.noUi-vertical .noUi-handle {
+}
+
+.noUi-background {
+}
+
+.noUi-connect {
+}
+
+.noUi-origin {
+    border-radius: 0;
+    background: $light-grey-C;
+}
+
+.noUi-target {
+    background-color: $vine-red;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.noUi-target.noUi-connect {
+    box-shadow: none;
+}
+
+.noUi-draggable {
+}
+
+.noUi-vertical .noUi-draggable {
+}
+
+.noUi-handle {
+    border: none;
+    border-radius: 100%;
+    background: $vine-red;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.noUi-active {
+}
+
+.noUi-handle:after, .noUi-handle:before {
+    display: none;
+}
+
+.noUi-handle:after {
+}
+
+.noUi-vertical .noUi-handle:after, .noUi-vertical .noUi-handle:before {
+}
+
+.noUi-vertical .noUi-handle:after {
+}
+
+[disabled] .noUi-connect, [disabled].noUi-connect {
+}
+
+[disabled] .noUi-handle, [disabled].noUi-origin {
+}
+
+.noUi-pips, .noUi-pips * {
+}
+
+.noUi-pips {
+}
+
+.noUi-value {
+}
+
+.noUi-value-sub {
+}
+
+.noUi-marker {
+}
+
+.noUi-marker-large, .noUi-marker-sub {
+}
+
+.noUi-pips-horizontal {
+}
+
+.noUi-value-horizontal {
+}
+
+.noUi-marker-horizontal.noUi-marker {
+}
+
+.noUi-marker-horizontal.noUi-marker-sub {
+}
+
+.noUi-marker-horizontal.noUi-marker-large {
+}
+
+.noUi-pips-vertical {
+}
+
+.noUi-value-vertical {
+}
+
+.noUi-marker-vertical.noUi-marker {
+}
+
+.noUi-marker-vertical.noUi-marker-sub {
+}
+
+.noUi-marker-vertical.noUi-marker-large {
+}
+
+.noUi-tooltip {
+}
+
+.noUi-horizontal .noUi-handle-lower .noUi-tooltip {
+}
+
+.noUi-horizontal .noUi-handle-upper .noUi-tooltip {
+}
+
+.noUi-vertical .noUi-handle-lower .noUi-tooltip {
+}
+
+.noUi-vertical .noUi-handle-upper .noUi-tooltip {
+}

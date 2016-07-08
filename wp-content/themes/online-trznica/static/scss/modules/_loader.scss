@@ -1,0 +1,68 @@
+.loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: $white-100;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+    &.is-visible {
+        display: block;
+    }
+
+    &__spin {
+        width: 90px;
+        height: 90px;
+        margin: 100px auto;
+    }
+
+    &__box {
+        width: 33.33%;
+        height: 33.33%;
+        background: $vine-red;
+        float: left;
+        animation: scale 1.2s infinite ease-in-out;
+
+        &.box1 {
+            animation-delay: .3s;
+        }
+        &.box2 {
+            animation-delay: .4s;
+        }
+        &.box3 {
+            animation-delay: .5s;
+        }
+        &.box4 {
+            animation-delay: .2s;
+        }
+        &.box5 {
+            animation-delay: .3s;
+        }
+        &.box6 {
+            animation-delay: .4s;
+        }
+        &.box7 {
+            animation-delay: .1s;
+        }
+        &.box8 {
+            animation-delay: .2s;
+        }
+        &.box9 {
+            animation-delay: .3s;
+        }
+    }
+}
+
+@keyframes scale {
+
+    0%, 80%, 100% {
+        transform: scale3d(1,1,1);
+    }
+    40% {
+        transform: scale3d(0,0,1);
+    }
+}

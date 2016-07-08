@@ -1,0 +1,59 @@
+// FOOTER
+.footer {
+    padding: 32px 0 36px 0;
+
+    &__wrapper {
+        background-color: $vine-red;
+        color: $white-100;
+        overflow: hidden;
+    }
+}
+
+.copy {
+    padding: 10px 22px;
+    display: inline-block;
+    @include font-size-map($font-size-15);
+    line-height: 1.5em;
+
+    &__wrapper {
+        padding-top: 15px;
+        @include span(6 of 24);
+
+        @include MQ(desktop-S) {
+            @include span(10 of 24);
+            text-align: right;
+        }
+
+        @include MQ(tablet) {
+            @include span(10 of 24);
+            text-align: right;
+        }
+
+        @include MQ(767px) {
+            @include full();
+            text-align: center;
+        }
+    }
+
+    &__gototop {
+        vertical-align: top;
+        display: inline-block;
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        background-color: #970039;
+        border-radius: 50%;
+        text-align: center;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+
+            use {
+                fill: $white-100;
+            }
+        }
+    }
+}

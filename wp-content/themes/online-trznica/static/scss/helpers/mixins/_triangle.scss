@@ -1,0 +1,34 @@
+@mixin triangle($position: top, $width: 0, $height: 0, $color: transparent) {
+    content: "\A";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    -webkit-transform: rotate(360deg);
+    @if $position == "top" {
+        border-width: 0 ($width/2) $height ($width/2);
+        border-color: transparent transparent $color transparent;
+    } @else if $position == "top-right" {
+        border-width: 0 $width $height 0;
+        border-color: transparent $color transparent transparent;
+    } @else if $position == "right" {
+        border-width: ($height/2) 0 ($height/2) $width;
+        border-color: transparent transparent transparent $color;
+    } @else if $position == "bottom-right" {
+        border-width: 0 0 $height $width;
+        border-color: transparent transparent $color transparent;
+    } @else if $position == "bottom" {
+        border-width: $height ($width/2) 0 ($width/2);
+        border-color: $color transparent transparent transparent;
+    } @else if $position == "bottom-left" {
+        border-width: $width 0 0 $width;
+        border-color: transparent transparent transparent $color;
+    } @else if $position == "left" {
+        border-width: ($height/2) $width ($height/2) 0;
+        border-color: transparent $color transparent transparent;
+    } @else if $position == "top-left" {
+        border-width: $width $width 0 0;
+        border-color: $color transparent transparent transparent;
+    } @else {
+        @error 'Triangle mixin supports: top, top-right, right, bottom-right, bottom, bottom-left, left and top-left!';
+    }
+}

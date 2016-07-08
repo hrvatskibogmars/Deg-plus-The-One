@@ -1,0 +1,24 @@
+// HEADER
+.main-header {
+    padding-bottom: 50px;
+
+    @include MQ(mobile) {
+        padding-bottom: 25px;
+    }
+
+    //&--list { }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0.4em;
+    }
+
+    &__location {
+        color: $dark-grey;
+        padding-bottom: 20px;
+
+        a {
+            padding: 0 10px;
+        }
+    }
+}
