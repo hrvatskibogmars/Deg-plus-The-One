@@ -43,7 +43,7 @@ class ProductsSearch
 
     private function initCategoryArguments()
     {
-        if($this->category == 0) {
+        if(!$this->category) {
             return;
         }
         if(!is_array($this->category)) {

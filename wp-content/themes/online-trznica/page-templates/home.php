@@ -7,6 +7,9 @@ get_header();
 
 $query = new WP_Query(array(
     "post_type" => "product",
+    "orderby" => "meta_value_num",
+    'meta_key' => 'featured',
+    "meta_value" => 1,
     "posts_per_page" => 6
 ));
 
