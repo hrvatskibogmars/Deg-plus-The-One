@@ -21,7 +21,7 @@ $opgs = $os->search();
             </div>
         </nav>
         <div class="horiz">
-            <h1 class="horiz__title">OPG-ovi</h1>
+            <h1 class="horiz__heading">OPG-ovi</h1>
             <div class="filter">
                 <form action="#" class="filter__form">
                     <select>
