@@ -19,6 +19,7 @@ class AutoLoader {
         "Licitation" => "helpers/classes/Licitation",
         "TableOwnership" => "helpers/classes/TableOwnership",
         "ProductsSearch" => "helpers/classes/ProductsSearch",
+        "OPGSearch" => "helpers/classes/OPGSearch",
     );
 
 
