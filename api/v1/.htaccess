@@ -1,5 +1,3 @@
-Header set Content-Type "application/json; charset=utf-8"
-
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
