@@ -232,7 +232,7 @@ $(function () {
 
         console.log(licitations);
         
-        $.ajax({
+        jQuery.ajax({
             url : '/api/v1/licitation/add',
             method: 'POST',
             data : {
