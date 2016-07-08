@@ -233,7 +233,7 @@ $(function () {
         console.log(licitations);
         
         jQuery.ajax({
-            url : '/api-licitation-add',
+            url : '/api/v1/licitation/add',
             method: 'POST',
             data : {
                 tableId : licitations,
